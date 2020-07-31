@@ -15,7 +15,7 @@ Por ejemplo, una buena implementación de las devoluciones de llamada de un cicl
 
 ## Devoluciones de llamada de los ciclos de vida de la actividad
 
-![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(lifecycle)/0001.png)
+![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(lifecycle)/0002.png)
 
 ### onCreate()
 
@@ -73,6 +73,38 @@ El sistema invoca a esta devolución de llamada porque:
 * El sistema está finalizando temporalmente la actividad debido a un cambio de configuración (por ejemplo a rotar pantalla o modo multiventana).
 
 La devolución de llamada onDestroy() debe liberar todos los recursos que aún no han sido liberados por devoluciones de llamada anteriores.
+
+
+## Estados de la actividad
+
+![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(lifecycle)/0001.png)
+
+INITIALIZED (Inicializada)
+
+CREATED (Creada)
+Cuando se crea la actividad, esta entra en el estado Created.
+
+STARTED (Iniciada)
+El usuario puede ver la actividad, mientras la app se prepara para que esta entre en primer plano y se convierta en interactiva.
+
+RESUMED (Reanudada)
+La actividad pasa al primer plano e interactúa con el usuario.
+
+PAUSED (Pausada)
+Indica que la actividad ya no está en primer plano (aunque puede seguir siendo visible).
+
+STOPPED (Detenida)
+El usuario ya no puede ver la actividad.
+
+DESTROYED (Destruida)
+Se termino de ejecutar la actividad.
+
+
+## Expulsión de memoria
+
+El sistema finaliza los procesos cuando necesita liberar RAM; la probabilidad de que el sistema finalice un proceso determinado dependerá del estado del proceso en ese momento.
+
+![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(lifecycle)/0003.png)
 
 
 ## Attribution
