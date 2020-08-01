@@ -74,7 +74,6 @@ El sistema invoca a esta devolución de llamada porque:
 
 La devolución de llamada onDestroy() debe liberar todos los recursos que aún no han sido liberados por devoluciones de llamada anteriores.
 
-
 ## Estados de la actividad
 
 ![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(lifecycle)/0001.png)
