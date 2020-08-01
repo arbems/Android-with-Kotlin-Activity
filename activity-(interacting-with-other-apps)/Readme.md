@@ -130,13 +130,124 @@ Para mostrar el selector, crea un Intent utilizando createChooser() y pásalo a 
     
 ### Obtener el resultado devuelto
 
-a
+Recibir el resultado desde la otra actividad. Cuando esta actividad finalize, se llamará a su método onActivityResult() con el requestCode dado.
+Por ejemplo, tu app puede iniciar una app de cámara y recibir la fotografía tomada como resultado.
+
+onActivityResult, se invoca cuando una actividad que inició se cierra, proporcionándole el código de solicitud con el que lo inició, el código de resultado que devolvió y datos del resultado:
 
 ####
-    sample
+    protected void onActivityResult (
+                    int requestCode, 
+                    int resultCode, 
+                    Intent data)
+    
+    resultCode: será RESULT_CANCELED si no devolvió ningún resultado o se bloqueó durante su operación o RESULT_OK si se realizó la operación de manera correcta.
+
+Para controlar correctamente el resultado, debes comprender cuál será el formato del Intent del resultado. Es muy sencillo hacerlo cuando la actividad que muestra el resultado es una de tus propias actividades. Las apps incluidas con la plataforma de Android ofrecen sus propias API, que puedes utilizar para obtener datos de resultados específicos. Por ejemplo, la app de Personas siempre muestra un resultado con el URI de contenido que identifica el contacto seleccionado, y la app de Cámara muestra un Bitmap en el objeto "data" adicional.
+
+## Recibir solicitudes de otras apps
+
+### Responder a solicitud de acción de otras apps
+
+Si tu app puede realizar una acción que podría ser útil desde otra app, debe estar preparada para responder a las solicitudes de acción especificando el filtro de intents apropiado en tu actividad.
+
+#### Filtros de intents
+Para permitir que otras apps inicien tu actividad de esta manera, debes agregar un elemento <intent-filter> del archivo de manifiesto para el elemento <activity> correspondiente.
+
+Cada filtro de intents que agregues debe ser lo más específico posible en cuanto al tipo de acción y los datos que la actividad acepta.
+
+####
+    <acivity>
+           <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+           </intent-filter>
+           <intent-filter></intent-filter>
+            ...
+    </activity>
+    
+    Action: Declara la acción de la intent aceptada, en el atributo name. El valor debe ser el de la string literal de una acción, no la constante de clase.
+    
+    Data: Declara el tipo de datos que se acepta, mediante el uso de uno o más atributos que especifican varios aspectos del URI de datos (scheme, host, port, path, etc.) y el tipo de MIME.
+    
+    Category: Declara la categoría de la intent aceptada, en el atributo name. El valor debe ser el de la string literal de una acción, no la constante de clase. El sistema admite varias categorías diferentes, pero la mayoría se usan muy poco. Sin embargo, todos los intents implícitos se definen con CATEGORY_DEFAULT de forma predeterminada.
+
+`Nota: Si no necesitas declarar información específica acerca del Uri de los datos (por ejemplo, cuando tu actividad controla cualquier otro tipo de datos "adicionales", en lugar de un URI), debes especificar solo el atributo android:mimeType para declarar el tipo de datos que controla tu actividad, como text/plain o image/jpeg.`
+
+`Sugerencia: Si quieres que el ícono del diálogo del selector sea diferente del ícono predeterminado de tu actividad, agrega android:icon en el elemento <intent-filter>.`
+
+Si tu app está instalada en un dispositivo, el sistema identifica tus filtros de intents y agrega la información a un catálogo interno de intents admitidos por todas las apps instaladas. Cuando una aplicación llama a startActivity() o startActivityForResult(), con un intent implícito, el sistema encuentra qué actividad (o actividades) puede responder al intent.
+
+Si existen dos pares de acción y datos que son mutuamente excluyentes en tus comportamientos, debes crear filtros de intents separados para especificar qué acciones son aceptables cuando están sincronizadas con determinados tipos de datos.
+
+Por ejemplo, supongamos que la actividad controla tanto texto como imágenes para los intents ACTION_SEND y ACTION_SENDTO. En ese caso, debes definir dos filtros de intents separados para las dos acciones porque un intent ACTION_SENDTO debe utilizar el Uri de datos para especificar la dirección del destinatario mediante el esquema de URI send o sendto:
+
+      <activity android:name="ShareActivity">
+        <!-- filter for sending text; accepts SENDTO action with sms URI schemes -->
+        <intent-filter>
+            <action android:name="android.intent.action.SENDTO"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="sms" />
+            <data android:scheme="smsto" />
+        </intent-filter>
+        <!-- filter for sending text or images; accepts SEND action and text or image data -->
+        <intent-filter>
+            <action android:name="android.intent.action.SEND"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="image/*"/>
+            <data android:mimeType="text/plain"/>
+        </intent-filter>
+    </activity>
+
+`Nota: Para recibir intents implícitos, debes incluir la categoría CATEGORY_DEFAULT en el filtro de intents. Los métodos startActivity() y startActivityForResult() tratan todos los intents como si declararan la categoría CATEGORY_DEFAULT. Si no la declaras en el filtro de intents, no se resolverá ningún intent implícito en la actividad.`
+
+### Obtener intent en la actividad
+
+Para controlar el intent en tu actividad debes decidir que acción llevarás a cabo, para esto hay que leer el Intent que se usó para iniciarla.
+
+Cuando comience tu actividad, llama a getIntent() para recuperar el Intent que inició la actividad. Puedes hacerlo en cualquier momento durante el ciclo de vida de la actividad, pero, en general, debes hacerlo durante las primeras devoluciones de llamada, como onCreate() o onStart().
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+    
+            setContentView(R.layout.main)
+    
+            val data: Uri? = intent?.data
+    
+            // Averigua qué hacer en función del tipo de intent
+            if (intent?.type?.startsWith("image/") == true) {
+                // Manejar intents con datos de imagen ...
+            } else if (intent?.type == "text/plain") {
+                // Manejar intents con texto ...
+            }
+        }
+    
+### Devolver un resultado
+
+Si quieres mostrar un resultado a la actividad que invocó la tuya, tan solo llama a setResult() para especificar el código y el Intent del resultado.
+
+Cuando finalices la operación y el usuario deba volver a la actividad original, llama a finish() para cerrar (y finalizar) tu actividad.
+
+        Intent("com.example.RESULT_ACTION", Uri.parse("content://result_uri")).also { result ->
+            setResult(Activity.RESULT_OK, result)
+        }
+        finish()
+
+`Siempre debes especificar un código de resultado con el resultado. En general, es RESULT_OK o RESULT_CANCELED.`
  
- 
- 
+`Nota: El resultado se establece en RESULT_CANCELED de forma predeterminada. De este modo, si el usuario presiona el botón Atrás antes de completar la acción y antes de que establezcas el resultado, la actividad original recibirá el resultado de "cancelada".`
+
+`Nota: No es necesario verificar si la actividad se inició con startActivity() o startActivityForResult(). Simplemente llama a setResult() si el intent que inició tu actividad puede esperar un resultado. Si la actividad original llama a startActivityForResult(), el sistema le mostrará el resultado que proporciones a setResult(); de lo contrario, se omitirá el resultado.`
+
+Si usas el código de resultado para mostrar un número entero y no necesitas incluir el Intent, puedes llamar a setResult() y pasar solo un código de resultado.
+
+    setResult(RESULT_COLOR_RED)
+    finish()
+
+En este caso, solo puede haber unos pocos resultados posibles, de modo que el código de resultado es un número entero definido localmente (mayor que 0). Esto funciona bien cuando muestras un resultado a una actividad en tu propia app, porque la actividad que recibe el resultado puede hacer referencia a la constante pública que determina el valor del código de resultado.
+
 ## Attribution
 
 This code was created by [arbems](https://github.com/arbems) in 2020.
