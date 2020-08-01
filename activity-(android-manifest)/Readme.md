@@ -40,7 +40,7 @@ Para usar actividades, debes declararlas, y también declarar algunos de sus atr
 `Una vez que publiques tu app, no deberías cambiar los nombres de las actividades. Si lo haces, se pueden romper algunas funcionalidades, como los accesos directos a las apps.`
   
      
-####  Atributos de un activity en archivo de manifiesto -  [link](https://developer.android.com/guide/topics/manifest/activity-element)
+####  Atributos de un activity en archivo de manifiesto -  [ver más](https://developer.android.com/guide/topics/manifest/activity-element)
 
 
 ## Declarar filtros de intens en actividades

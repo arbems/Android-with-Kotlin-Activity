@@ -42,6 +42,10 @@ Si una app está en segundo plano y el sistema necesita liberar memoria adiciona
 
 ![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(manage-activity-status-changes)/0004.png)
 
+####
+    Detener una aplicación de Android desde la consola:
+    adb shell am kill <package_name>
+
 ## Attribution
 
 This code was created by [arbems](https://github.com/arbems) in 2020.
