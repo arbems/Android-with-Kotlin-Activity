@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_b.*
 
 class BActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,8 @@ class BActivity : AppCompatActivity() {
         resultIntent.putExtra("text_result_id", "Result text returned")
         setResult(Activity.RESULT_OK, resultIntent)
 
-        finish()
+        button.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
              * Create explicit intent and start activity
              */
             val intent: Intent = Intent(this, AActivity::class.java)
-            intent.putExtra("text_id", "My text to send")
+            intent.putExtra("text_id", "Text received")
             startActivity(intent)
         }
     }

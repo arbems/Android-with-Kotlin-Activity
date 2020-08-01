@@ -15,10 +15,10 @@ class AActivity : AppCompatActivity() {
          */
         textView.text = intent?.extras?.get("text_id")?.toString()
 
+        /**
+         * Create explicit intent and start activity for result
+         */
         button.setOnClickListener {
-            /**
-             * Create explicit intent and start activity for result
-             */
             val intent: Intent = Intent(this, BActivity::class.java)
             startActivityForResult(intent, CODE_REQUEST)
         }
