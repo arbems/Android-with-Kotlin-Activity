@@ -1,4 +1,4 @@
-# Android con Kotlin - Activity - Interactuar con otras apps
+# Android con Kotlin - Activity - Interactuando con otras apps
 
 Código de ejemplo de como interactuar con otras apps en Android con Kotlin.
 

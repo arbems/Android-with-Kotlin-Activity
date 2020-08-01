@@ -1,4 +1,4 @@
-# Android con Kotlin - Activity - Navigation between activities
+# Android con Kotlin - Activity - Navegación entre actividades
 
 Código de ejemplo de navegación entre actividades en Android con Kotlin.
 
