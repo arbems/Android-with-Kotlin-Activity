@@ -14,17 +14,17 @@ Decidir cómo combinar estas opciones depende de la complejidad de los datos de 
 
 En la mayoría de los casos, cada uno de estos mecanismos debe almacenar un tipo diferente de datos utilizados en la actividad, en función de las compensaciones de la complejidad de los datos, la velocidad de acceso y el ciclo de vida:
 
-### Persistencia local
-
-Almacena todos los datos que no quieras perder cuando abras y cierres la actividad.
-
 ### ViewModel
 
 Almacena en la memoria todos los datos necesarios para mostrar el controlador de IU asociado.
 
-### onSaveInstanceState()
+### Estado de instancia guardado - onSaveInstanceState()
 
 Almacena una pequeña cantidad de datos necesarios para volver a cargar fácilmente el estado de una actividad si se detiene el sistema y, luego, vuelve a crear el controlador de IU. En lugar de almacenar objetos complejos en este lugar, consérvalos en un almacenamiento local y almacena un ID único para esos objetos en onSaveInstanceState().
+
+### Almacenamiento persistente
+
+Almacena todos los datos que no quieras perder cuando abras y cierres la actividad.
 
 ![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(save-and-reset-ui-status)/0001.png)
 
