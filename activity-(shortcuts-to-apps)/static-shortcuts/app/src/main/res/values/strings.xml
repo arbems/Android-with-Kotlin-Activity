@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Apps Shortcuts</string>
+    <string name="compose_shortcut_short_label1">1 Static shortcut </string>
+    <string name="compose_shortcut_long_label1">1 Static shortcut </string>
+    <string name="compose_disabled_message1">Disabled - 1 Static shortcut </string>
+    <string name="compose_shortcut_short_label2">2 Static shortcut </string>
+    <string name="compose_shortcut_long_label2">2 Static shortcut </string>
+    <string name="compose_disabled_message2">Disabled - 2 Static shortcut </string>
+</resources>
