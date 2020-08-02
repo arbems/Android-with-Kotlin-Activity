@@ -1,6 +1,6 @@
-# Android con Kotlin - Activity - Android Manifest
+# Android con Kotlin - Activity - Configurar el manifiesto para actividades
 
-Código de ejemplo de configuración de archivo de manifiesto para una actividad en Android con Kotlin.
+Código de ejemplo de configuración de archivo de manifiesto para actividades en Android con Kotlin.
                
 ## Declarar actividades 
 Todas las actividades deben estar representadas por elementos <activity> en el archivo de manifiesto.                                                                         
