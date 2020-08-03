@@ -8,7 +8,7 @@ Cada acceso directo hace referencia a uno o más intents, cada uno de los cuales
 
 `Nota: Solo las actividades principales (actividades que manejan la Intent.ACTION_MAIN acción y la Intent.CATEGORY_LAUNCHER categoría) pueden tener accesos directos. Si una aplicación tiene múltiples actividades principales, debe definir el conjunto de accesos directos para cada actividad.`
 
-![Lifecycle Activity](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(shortcuts-to-apps)/0001.png)
+![static and dynamic shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(shortcuts-to-apps)/0001.png)
 `Usando los accesos directos de aplicaciones, puede mostrar acciones clave y llevar a los usuarios a su aplicación al instante`
 
 ### Tipos de accesos directos
@@ -89,30 +89,78 @@ Los accesos directos entregan tipos específicos de contenido a sus usuarios al 
 
 Los accesos directos dinámicos proporcionan enlaces a acciones específicas y sensibles al contexto dentro de su aplicación. Estas acciones pueden cambiar entre los usos de su aplicación, y pueden cambiar incluso mientras su aplicación se está ejecutando.
 
+`En Android 7.0 (API nivel 25) y superior admite accesos directos para acciones rápidas para sus aplicaciones desde los iniciadores, ayudan a sus usuarios a iniciar rápidamente tareas comunes o recomendadas dentro de la aplicación, por ejemplo acceso a chats recientes, llamadas, notas, etc.`
+
 **[ShortcutManager](https://developer.android.com/reference/android/content/pm/ShortcutManager)** API le permite completar las siguientes operaciones en accesos directos dinámicos:
 
 * Publicar: se usa **setDynamicShortcuts()** para redefinir la lista completa de accesos directos dinámicos, o se usa **addDynamicShortcuts()** para aumentar una lista existente de accesos directos dinámicos.
-* Actualización: use el **updateShortcuts()** método.
-* Eliminar: **removeDynamicShortcuts()** elimine un conjunto de métodos abreviados dinámicos utilizando o elimine todos los métodos abreviados dinámicos utilizando **removeAllDynamicShortcuts()**.
 
-        val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java)
-        
-        val shortcut = ShortcutInfo.Builder(context, "id1")
+        val shortcutManager = getSystemService(ShortcutManager::class.java)
+    
+        val shortcutInfo = ShortcutInfo.Builder(context, "id1")
                 .setShortLabel("Website")
                 .setLongLabel("Open the website")
                 .setIcon(Icon.createWithResource(context, R.drawable.icon_website))
                 .setIntent(Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.mysite.example.com/")))
+                        Uri.parse("https://github.com/arbems/")))
                 .build()
-        
-        shortcutManager!!.dynamicShortcuts = Arrays.asList(shortcut)
+
+        shortcutManager!!.dynamicShortcuts = listOf(shortcutInfo)
+
+* Actualización: use el **updateShortcuts()** método.
+
+* Eliminar: **removeDynamicShortcuts()** elimine un conjunto de métodos abreviados dinámicos utilizando o elimine todos los métodos abreviados dinámicos utilizando **removeAllDynamicShortcuts()**.
+
+        val shortcutManager = getSystemService(ShortcutManager::class.java)
+
+        shortcutManager!!.removeAllDynamicShortcuts()
 
 Para conocer los métodos que recuperan información sobre un acceso directo único, incluidos los identificadores, el tipo y el estado, lea la referencia de [ShortcutInfo](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
 
-#### Crear accesos directos anclados
+#### Crear accesos directos anclados`
 
+A diferencia de los accesos directos estáticos y dinámicos, los accesos directos fijados aparecen en los iniciadores compatibles como iconos separados.
 
+`En Android 8.0 (API nivel 26) y superior, puedes crear accesos directos anclados`
 
+![pinned shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(shortcuts-to-apps)/0002.png)
+
+1. Use **isRequestPinShortcutSupported()** para verificar que el iniciador predeterminado del dispositivo admite la fijación de accesos directos en la aplicación.
+
+2. Cree un objeto **ShortcutInfo**.
+
+3. Anclar el acceso directo al iniciador del dispositivo llamando a **requestPinShortcut()**. Durante este proceso, puede pasar un objeto **PendingIntent**, que notifica a su aplicación solo cuando el acceso directo se fija correctamente.
+
+`Después de anclar un acceso directo, su aplicación puede actualizar su contenido utilizando el método updateShortcuts()`
+
+####
+    val shortcutManager = getSystemService(ShortcutManager::class.java)
+
+    if (shortcutManager!!.isRequestPinShortcutSupported) {
+        // Assumes there's already a shortcut with the ID "my-shortcut".
+        // The shortcut must be enabled.
+        val pinShortcutInfo = ShortcutInfo.Builder(applicationContext, "my-shortcut")
+                .setShortLabel("My pinned shortcut")
+                .setLongLabel("My pinned shortcut")
+                .setIntent(Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://github.com/arbems/")))
+                .build()
+
+        // Create the PendingIntent object only if your app needs to be notified
+        // that the user allowed the shortcut to be pinned. Note that, if the
+        // pinning operation fails, your app isn't notified. We assume here that the
+        // app has implemented a method called createShortcutResultIntent() that
+        // returns a broadcast intent.
+        val pinnedShortcutCallbackIntent = shortcutManager.createShortcutResultIntent(pinShortcutInfo)
+
+        // Configure the intent so that your app's broadcast receiver gets
+        // the callback successfully.For details, see PendingIntent.getBroadcast().
+        val successCallback = PendingIntent.getBroadcast(applicationContext, /* request code */ 0,
+                pinnedShortcutCallbackIntent, /* flags */ 0)
+
+        shortcutManager.requestPinShortcut(pinShortcutInfo,
+                successCallback.intentSender)
+    }
 
 ## Attribution
 
