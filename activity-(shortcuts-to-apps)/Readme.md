@@ -17,7 +17,7 @@ Cada acceso directo hace referencia a uno o más intents, cada uno de los cuales
     * Por ejemplo, ver los mensajes enviados, configurar una alarma...
     
 * **Dynamic shortcuts**, se usan para acciones en aplicaciones sensibles al contexto, pueden ser publicados, actualizados y eliminados por la aplicación solo en tiempo de ejecución.
-    * Por ejemplo, si crea un juego que permite al usuario comenzar desde su nivel actual, el acceso directo deberá actualizarse con frecuencia.
+    * Por ejemplo, llamar a una persona específica, navegar a una ubicación específica y cargar un juego desde el último punto guardado del usuario.
     
 * **Pinned shortcuts**, se utilizan para acciones específicas dirigidas por el usuario, se pueden agregar en tiempo de ejecución si el usuario otorga permiso.
     * Por ejemplo, acceso directo a cualquier sitio web específico o ruta de google maps.
@@ -83,7 +83,36 @@ Los accesos directos entregan tipos específicos de contenido a sus usuarios al 
 * android:icon -> icono que muestra al usuario
 
 * `<intent>` La acción que el sistema inicia cuando el usuario selecciona el acceso directo. Esta intención debe proporcionar un valor para el android:action atributo. Puede proporcionar múltiples intentos para un solo acceso directo.
-* `<categories>` Proporciona una agrupación para los tipos de acciones que realizan los accesos directos de su aplicación, como la creación de nuevos mensajes de chat.
+* `<categories>` Proporciona una agrupación para los tipos de acciones que realizan los accesos directos de su aplicación, como la creación de nuevos mensajes de chat. Para obtener una lista de categorías de accesos directos compatibles, vea [ShortcutInfo](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
+
+#### Crear accesos directos dinámicos
+
+Los accesos directos dinámicos proporcionan enlaces a acciones específicas y sensibles al contexto dentro de su aplicación. Estas acciones pueden cambiar entre los usos de su aplicación, y pueden cambiar incluso mientras su aplicación se está ejecutando.
+
+**[ShortcutManager](https://developer.android.com/reference/android/content/pm/ShortcutManager)** API le permite completar las siguientes operaciones en accesos directos dinámicos:
+
+* Publicar: se usa **setDynamicShortcuts()** para redefinir la lista completa de accesos directos dinámicos, o se usa **addDynamicShortcuts()** para aumentar una lista existente de accesos directos dinámicos.
+* Actualización: use el **updateShortcuts()** método.
+* Eliminar: **removeDynamicShortcuts()** elimine un conjunto de métodos abreviados dinámicos utilizando o elimine todos los métodos abreviados dinámicos utilizando **removeAllDynamicShortcuts()**.
+
+        val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java)
+        
+        val shortcut = ShortcutInfo.Builder(context, "id1")
+                .setShortLabel("Website")
+                .setLongLabel("Open the website")
+                .setIcon(Icon.createWithResource(context, R.drawable.icon_website))
+                .setIntent(Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.mysite.example.com/")))
+                .build()
+        
+        shortcutManager!!.dynamicShortcuts = Arrays.asList(shortcut)
+
+Para conocer los métodos que recuperan información sobre un acceso directo único, incluidos los identificadores, el tipo y el estado, lea la referencia de [ShortcutInfo](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
+
+#### Crear accesos directos anclados
+
+
+
 
 ## Attribution
 
