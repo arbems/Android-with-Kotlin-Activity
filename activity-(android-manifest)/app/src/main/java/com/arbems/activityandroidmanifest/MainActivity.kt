@@ -11,13 +11,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button1.setOnClickListener {
-            /** Explicit call to activity */
+            /**
+             * Explicit call to activity
+             */
             val intent = Intent(this, AActivity::class.java)
             startActivity(intent)
         }
 
         button2.setOnClickListener {
-            /** Implicit call to activity */
+            /**
+             * Implicit call to activity
+             */
             val sendIntent = Intent().apply {
                 action = Intent.ACTION_SEND
                 type = "text/plain"

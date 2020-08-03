@@ -4,7 +4,7 @@
 
 #### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(manage-activity-status-changes))
 
-#### [Android Manifest](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(android-manifest))
+#### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(android-manifest))
 
 #### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(android-app-links))
 

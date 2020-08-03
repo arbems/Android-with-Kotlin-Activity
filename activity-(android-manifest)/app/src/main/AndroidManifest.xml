@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arbems.activityandroidmanifest">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- other permissions go here -->
 
     <application
@@ -12,14 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--  main activity, this is the first screen when you start the application. -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AActivity" android:label="Explicit call to the activity" />
+        <activity
+            android:name=".AActivity"
+            android:label="Explicit call to the activity" />
         <activity
             android:name=".BActivity"
             android:label="Implicit call to activity"
@@ -30,6 +32,7 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        <!-- other activities go here -->
     </application>
 
 </manifest>
