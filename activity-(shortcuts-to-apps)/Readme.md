@@ -117,7 +117,7 @@ Los accesos directos dinámicos proporcionan enlaces a acciones específicas y s
 
 Para conocer los métodos que recuperan información sobre un acceso directo único, incluidos los identificadores, el tipo y el estado, lea la referencia de [ShortcutInfo](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
 
-#### Crear accesos directos anclados`
+#### Crear accesos directos anclados
 
 A diferencia de los accesos directos estáticos y dinámicos, los accesos directos fijados aparecen en los iniciadores compatibles como iconos separados.
 
