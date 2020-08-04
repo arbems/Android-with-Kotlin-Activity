@@ -12,7 +12,7 @@
 
 #### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(multi-window-compatibility))
 
-#### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(save-and-reset-ui-status))
+#### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments))
 
 #### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(save-and-reset-ui-status))
 
