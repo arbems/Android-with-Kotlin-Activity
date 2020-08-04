@@ -53,7 +53,7 @@ El método inflate():
 
 ### Agregar fragmento a actividad
 
-#### Declarando el fragmento en el archivo de diseño de la actividad.
+#### 1. Primera opción es declarando el fragmento en el archivo de diseño de la actividad.
     
         <?xml version="1.0" encoding="utf-8"?>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -74,30 +74,95 @@ El método inflate():
 
 Cuando el sistema crea el diseño de esta actividad, crea una instancia para cada fragmento especificado en el diseño, además de llamar al método onCreateView(), con el objetivo de recuperar el diseño de cada fragmento. El sistema inserta el objeto View que muestra el fragmento directamente en lugar del elemento <fragment>.
 
-#### Guardando el fragmento de forma programática en un ViewGroup existente.
+#### 2. Segunda opción es guardando el fragmento de forma programática en un ViewGroup existente.
 
-Mientras la actividad se está ejecutando, puedes agregar fragmentos al diseño. Solo hay que especificar un ViewGroup para colocar el fragmento.
+Mientras la actividad se está ejecutando, puedes agregar fragmentos al diseño. Solo hay que especificar un ViewGroup para colocar el fragmento, usando la API de FragmentTransaction.
 
-Para realizar transacciones de fragmentos en tu actividad (como agregar, quitar o reemplazar un fragmento), debes usar las API de [FragmentTransaction](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction?hl=es-419).
+## Administrar fragmentos
+
+Para administrar los fragmentos de tu actividad, debes usar [**FragmentManager**](https://developer.android.com/reference/androidx/fragment/app/FragmentManager?hl=es-419). <br/>
+Para obtenerlo, llama a getSupportFragmentManager() desde tu actividad:
 
     val fragmentManager = supportFragmentManager
+
+Con **FragmentManager** puedes:
+
+* Abrir un FragmentTransaction, que te permite realizar transacciones como agregar y quitar fragmentos.
+* Obtener fragmentos que ya existen en la actividad con findFragmentById() (para fragmentos que proporcionan una IU en el diseño de la actividad) o findFragmentByTag() (para fragmentos con o sin IU)
+* Activar fragmentos de la pila de retroceso con popBackStack()
+* Registrar un receptor para cambios realizados en la pila de retroceso con addOnBackStackChangedListener()
+
+## Realizar transacciones de fragmentos
+
+Los fragmentos tienen la capacidad de poderse agregar, quitar, reemplazar y realizar otras acciones en respuesta a la interacción del usuario. Cada conjunto de cambios que confirmas en la actividad recibe la denominación de transacción. Usando la API de [**FragmentTransaction**](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction?hl=es-419).
+También puedes guardar cada transacción en la pila de actividades administrada por la actividad, lo que le permitirá al usuario navegar hacia atrás por los cambios realizados en el fragmento.
+
+Puedes adquirir una instancia de FragmentTransaction de FragmentManager:
+
     val fragmentTransaction = fragmentManager.beginTransaction()
     
-Luego, puedes agregar un fragmento usando el método add() y especificando el fragmento que se agregará, así como la vista en la que se insertará:
+#### add()
+    
+Puedes agregar un fragmento usando el método add() y especificando el fragmento que se agregará, así como la vista en la que se insertará:
 
     val fragment = ExampleFragment()
     fragmentTransaction.add(R.id.fragment_container, fragment) // El primer argumento es el ViewGroup, en el que se debe colocar el fragmento.
     fragmentTransaction.commit()
     
+#### replace()
+
+Reemplaza un fragmento por otro que se encuentra actualmente en el contenedor de diseño identificado con el ID y conservar el estado anterior en la pila de actividades:
+
+    val newFragment = ExampleFragment()
+    fragmentTransaction.replace(R.id.fragment_container, newFragment)
+    fragmentTransaction.addToBackStack(null)
+    fragmentTransaction.commit()
+
+#### remove()
+
+Elimina un fragmento existente. Si se agregó a un contenedor, su vista también se elimina de ese contenedor.
+
+    fragmentTransaction.remove(fragment)
+    fragmentTransaction.addToBackStack(null)
+    fragmentTransaction.commit()
+
+#### addToBackStack()
+
+Al llamar a addToBackStack(), la transacción de reemplazo se guarda en la pila de retroceso para que el usuario pueda revertir la transacción y recuperar el fragmento previo presionando el botón Atrás.
+
+Si agregas varios cambios a la transacción (como otro add() o remove()) y llamas a addToBackStack(), todos los cambios aplicados antes de llamar a commit() se agregarán a la pila de retroceso como una transacción única, y el botón Atrás los revertirá juntos.
+
+Si no llamas a addToBackStack(), cuando realices una transacción que quite un fragmento, ese fragmento se destruirá cuando se confirme la transacción y el usuario no podrá regresar a él.
+
+    fragmentTransaction.addToBackStack(null)
+
+**FragmentActivity** obtiene automáticamente fragmentos de la pila de retroceso mediante onBackPressed().
+
+#### commit()
+
 Una vez que realices los cambios con FragmentTransaction, deberás llamar a commit() para que se apliquen esos cambios.
 
-## Administrar fragmentos
+Llamar a commit() no realiza la transacción inmediatamente, sin embargo, si es necesario, puedes llamar a **executePendingTransactions**() desde el subproceso de tu IU para ejecutar de inmediato transacciones enviadas por commit().
 
-## Realizar transacciones de fragmentos
+    fragmentTransaction.commit()
 
-## Comunicarse con la actividad
+`Nota: antes de llamar a commit() probablemente te convenga llamar a addToBackStack() para agregar la transacción a una pila de retroceso de transacciones de fragmentos. Esta pila de actividades está administrada por la actividad y le permite al usuario volver a un estado anterior del fragmento presionando el botón Atrás.`
 
-## Controlar el ciclo de vida de un fragmento
+`Sugerencia: Para cada transacción de fragmentos, puedes aplicar una animación de transición llamando a setTransition() antes de confirmar.`
+
+## Comunicación entre fragmento y actividad
+
+Si bien un Fragment se implementa como un objeto dependiente de un FragmentActivity y puede usarse dentro de múltiples actividades, una instancia determinada de un fragmento está directamente vinculada a la actividad que la contiene.
+
+El fragmento puede acceder a la instancia FragmentActivity con getActivity() y realizar tareas de manera sencilla, como buscar una vista en el diseño de la actividad:
+
+    val listView: View? = activity?.findViewById(R.id.list)
+    
+La actividad puede llamar a métodos del fragmento mediante la adquisición de una referencia a Fragment desde FragmentManager usando findFragmentById() o findFragmentByTag():
+
+    val fragment = supportFragmentManager.findFragmentById(R.id.example_fragment) as ExampleFragment
+
+## Comunicación entre fragmentos dentro de una actividad
 
 ## Ciclo de vida de un fragmento
 
