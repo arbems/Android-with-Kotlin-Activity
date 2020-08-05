@@ -7,11 +7,12 @@ Este código contiene ejemplos de Fragments en Android con Kotlin.
     - Proporcionar un diseño definido en XML
     - Añadir fragmento a una actividad (Declarando fragmento en XML o Guardando el fragmento de forma programática)
 - [Administrar fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/admin-fragments)
+    - FragmentManager
 - [Crear una IU flexible](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/create-a-flexible-ui)
     - Realizar transacciones de fragmentos: add(), replace(), remove(), commit(), addToBackStack()
 - [Comunicación entre fragmentos y actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/communication-between-fragments)
-- [Navegar entre fragmentos mediante animaciones](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/admin-fragments)
-- [Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/)
+- [Navegar entre fragmentos mediante animaciones](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/animations-fragment)
+- [Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/fragments-lifecycle)
 - [Testing Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/testing)
 - [Fragment KTX](https://developer.android.com/kotlin/ktx#fragment)
 
