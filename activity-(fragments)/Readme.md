@@ -6,12 +6,12 @@ Este código contiene ejemplos de Fragments en Android con Kotlin.
     - Crear clase Fragment
     - Proporcionar un diseño definido en XML
     - Añadir fragmento a una actividad (Declarando fragmento en XML o Guardando el fragmento de forma programática)
-- [Administrar fragmentos](#Administrar-fragmentos)
-- [Crear una IU flexible](#Crear-una-IU-flexible)
+- [Administrar fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/admin-fragments)
+- [Crear una IU flexible](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/create-a-flexible-ui)
     - Realizar transacciones de fragmentos: add(), replace(), remove(), commit(), addToBackStack()
-- [Comunicación entre fragmentos y actividad](#Comunicación-entre-fragmento-y-actividad)
-- [Navegar entre fragmentos mediante animaciones](#Navegar-entre-fragmentos-mediante-animaciones)
-- [Ciclo de vida de un fragmento](#Ciclo-de-vida-de-un-fragmento)
+- [Comunicación entre fragmentos y actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/communication-between-fragments)
+- [Navegar entre fragmentos mediante animaciones](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/admin-fragments)
+- [Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/)
 - [Testing Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/testing)
 - [Fragment KTX](https://developer.android.com/kotlin/ktx#fragment)
 
