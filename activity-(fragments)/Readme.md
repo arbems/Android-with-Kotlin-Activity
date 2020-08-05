@@ -2,7 +2,9 @@
 
 Código de ejemplo de fragments en Android con Kotlin.
 
-[Crear un fragmento](##Crear un fragmento)
+- [Crear un fragmento](#Crear-un-fragmento)
+    - Crear clase Fragment y agregar una UI
+    - Agregar un fragmento a una actividad
 
 Los fragmentos sirven como contenedores reutilizables dentro de tu app, lo que te permite presentar el mismo diseño de interfaz de usuario en una variedad de actividades y configuraciones de diseño.
 
@@ -12,7 +14,7 @@ El ciclo de vida de un fragmento esta afectado por el ciclo de vida de su activi
 
 Un [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419) representa un comportamiento o una parte de la interfaz de usuario en una [FragmentActivity](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity?hl=es-419).
 
-##Crear un fragmento
+## Crear un fragmento
 
 Para crear un fragmento, debes crear una subclase de [**Fragment**](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419). Existen también algunas subclases que quizá desees extender, en lugar de la clase de base Fragment: 
 
