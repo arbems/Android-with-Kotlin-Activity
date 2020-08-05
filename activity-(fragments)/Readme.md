@@ -1,10 +1,19 @@
 # Android con Kotlin - Activity - Fragments
 
-Código de ejemplo de fragments en Android con Kotlin.
+Este proyecto contiene ejemplos de fragments en Android con Kotlin.
 
 - [Crear un fragmento](#Crear-un-fragmento)
-    - Crear clase Fragment y agregar una UI
-    - Agregar un fragmento a una actividad
+    - Crear clase Fragment
+    - Proporcionar un diseño definido en XML
+    - Añadir fragmento a una actividad (Declarando fragmento en XML o Guardando el fragmento de forma programática)
+- [Administrar fragmentos](#Administrar-fragmentos)
+- [Crear una IU flexible](#Crear-una-IU-flexible)
+    - Realizar transacciones de fragmentos: add(), replace(), remove(), commit(), addToBackStack()
+- [Comunicación entre fragmento y actividad](#Comunicación-entre-fragmento-y-actividad)
+- [Comunicación entre fragmentos](#Comunicación-entre-fragmentos-dentro-de-una-actividad)
+- [Ciclo de vida de un fragmento](#Ciclo-de-vida-de-un-fragmento)
+- [Testing Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/testing)
+
 
 Los fragmentos sirven como contenedores reutilizables dentro de tu app, lo que te permite presentar el mismo diseño de interfaz de usuario en una variedad de actividades y configuraciones de diseño.
 
@@ -26,11 +35,11 @@ Para crear un fragmento, debes crear una subclase de [**Fragment**](https://deve
 
 Puedes insertar un fragmento en el diseño de la actividad declarando el fragmento en el archivo de diseño, como elemento, o desde el código de tu aplicación agregándolo a un archivo existente ViewGroup.
 
-### Crear clase Fragment y agregar una UI
+#### Crear clase Fragment
 
 Un fragmento generalmente se usa como parte de la interfaz de usuario de una actividad y le aporta su propio diseño.
 
-Implementa la devolución de llamada onCreateView() que es la único que necesitas para ejecutar un fragmento:
+Implementa la devolución de llamada onCreateView() que es la única que se necesita para ejecutar un fragmento:
 
     class ExampleFragment : Fragment() {
     
@@ -43,6 +52,7 @@ Implementa la devolución de llamada onCreateView() que es la único que necesit
         }
     }
 
+#### Proporcionar un diseño definido en XML
 Proporciona un diseño desde un recurso de diseño definido en XML:
     
     // Inflate the layout for this fragment
@@ -61,9 +71,9 @@ El método inflate():
 * **ViewGroup** 
 * **Boolean** que indica si se debe anexar el diseño aumentado al ViewGroup (en este caso, es falso porque el sistema ya está insertando el diseño aumentado al container; al pasar "true", se crearía un grupo de vistas redundante en el diseño final)
 
-### Agregar un fragmento a una actividad
+#### Añadir fragmento a una actividad
 
-#### 1. Declarando el fragmento en el archivo de diseño de la actividad.
+**1. Declarando el fragmento en el archivo de diseño de la actividad.**
 
 Agregando un fragmento al diseño de una actividad mediante la definición del fragmento en el archivo XML de diseño.
 
@@ -88,30 +98,41 @@ Cuando el sistema crea el diseño de esta actividad, crea una instancia para cad
 
 `Nota: Cuando agregas un fragmento al diseño de una actividad mediante la definición del fragmento en el archivo XML de diseño, no puedes quitar el fragmento en el tiempo de ejecución. Si planeas intercambiar fragmentos durante la interacción del usuario, debes agregar el fragmento a la actividad cuando esta recién se inicia, como se muestra en Cómo crear una IU flexible.`
 
-#### 2. Guardando el fragmento de forma programática en un ViewGroup existente.
+**2. Guardando el fragmento de forma programática en un ViewGroup existente.**
 
-Agregar fragmentos al diseño de manera dinámica usando la API de FragmentTransaction, mientras la actividad se está ejecutando. Solo hay que especificar un ViewGroup para colocar el fragmento.
+Usando transacciones, agregando fragmentos al diseño de manera dinámica usando la API de FragmentTransaction, mientras la actividad se está ejecutando. Solo hay que especificar un ViewGroup para colocar el fragmento.
 
 ## Administrar fragmentos
 
 Para administrar los fragmentos de tu actividad, debes usar [**FragmentManager**](https://developer.android.com/reference/androidx/fragment/app/FragmentManager?hl=es-419). <br/>
-Para obtenerlo, llama a getSupportFragmentManager() desde tu actividad:
+Para obtenerlo, llama a **getSupportFragmentManager**() desde tu actividad:
 
     val fragmentManager = supportFragmentManager
 
 Con **FragmentManager** puedes:
 
 * Abrir un FragmentTransaction, que te permite realizar transacciones como agregar y quitar fragmentos.
-* Obtener fragmentos que ya existen en la actividad con findFragmentById() (para fragmentos que proporcionan una IU en el diseño de la actividad) o findFragmentByTag() (para fragmentos con o sin IU)
-* Activar fragmentos de la pila de retroceso con popBackStack()
-* Registrar un receptor para cambios realizados en la pila de retroceso con addOnBackStackChangedListener()
+* Obtener fragmentos que ya existen en la actividad con **findFragmentById**() (para fragmentos que proporcionan una IU en el diseño de la actividad) o **findFragmentByTag**() (para fragmentos con o sin IU)
+* Activar fragmentos de la pila de retroceso con **popBackStack**()
+* Registrar un receptor para cambios realizados en la pila de retroceso con **addOnBackStackChangedListener**()
 
-## Realizar transacciones de fragmentos
+## Crear una IU flexible
+
+Puedes reutilizar tus fragmentos en diferentes configuraciones de diseño a fin de optimizar la experiencia del usuario en función del espacio de pantalla disponible.
+
+![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0003.png)
+`Se muestran dos fragmentos en distintas configuraciones para la misma actividad en diferentes tamaños de pantalla. En una pantalla grande, ambos fragmentos pueden ubicarse uno junto al otro. En cambio, en un móvil, solo puede mostrarse un fragmento a la vez, de modo que uno reemplaza al otro a medida que el usuario navega.`
+
+Para esto usamos la clase FragmentManager que permite agregar, quitar y reemplazar fragmentos en una actividad durante el tiempo de ejecución a fin de crear una experiencia dinámica.
+
+Si tu actividad permite quitar y reemplazar fragmentos, debes agregar los fragmentos iniciales a la actividad durante su método onCreate() y el diseño de tu actividad debe incluir un contenedor View en el que puedas insertar el fragmento.
+
+### Realizar transacciones de fragmentos
 
 Los fragmentos tienen la capacidad de poderse agregar, quitar, reemplazar y realizar otras acciones en respuesta a la interacción del usuario. Cada conjunto de cambios que confirmas en la actividad recibe la denominación de transacción. Usando la API de [**FragmentTransaction**](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction?hl=es-419).
 También puedes guardar cada transacción en la pila de actividades administrada por la actividad, lo que le permitirá al usuario navegar hacia atrás por los cambios realizados en el fragmento.
 
-Puedes adquirir una instancia de FragmentTransaction de FragmentManager:
+Puedes adquirir una instancia de FragmentTransaction de FragmentManager llamando a **beginTransaction**():
 
     val fragmentTransaction = fragmentManager.beginTransaction()
     
@@ -122,6 +143,16 @@ Puedes agregar un fragmento usando el método add() y especificando el fragmento
     val fragment = ExampleFragment()
     fragmentTransaction.add(R.id.fragment_container, fragment) // El primer argumento es el ViewGroup, en el que se debe colocar el fragmento.
     fragmentTransaction.commit()
+
+Con el módulo Fragment KTX, puedes simplificar las transacciones de fragmento con lambdas, por ejemplo:
+
+    supportFragmentManager.commit {
+        addToBackStack("...")
+        setCustomAnimations(
+                R.anim.enter_anim,
+                R.anim.exit_anim)
+        add(R.id.fragment_container, fragment, "fragment_first")
+    }
     
 #### replace()
 
@@ -164,6 +195,8 @@ Llamar a commit() no realiza la transacción inmediatamente, sin embargo, si es 
 
 `Sugerencia: Para cada transacción de fragmentos, puedes aplicar una animación de transición llamando a setTransition() antes de confirmar.`
 
+`Nota: Cuando quitas o reemplazas un fragmento, y agregas la transacción a la pila de actividades, se detiene (no se destruye) el fragmento que se quita. Si el usuario retrocede en su navegación para restaurar el fragmento, este se reinicia. Si no agregas la transacción a la pila de actividades al quitar o reemplazar un fragmento, este se destruirá.`
+
 ## Comunicación entre fragmento y actividad
 
 Un Fragment se implementa como un objeto dependiente de un FragmentActivity y puede usarse dentro de múltiples actividades, pero una instancia determinada de un fragmento está directamente vinculada a la actividad que la contiene.
@@ -179,7 +212,23 @@ La actividad puede llamar a métodos del fragmento mediante la adquisición de u
     val fragment = supportFragmentManager.findFragmentByTag("fragment_dynamic")
     
 
-## Comunicación entre fragmentos dentro de una actividad
+## Comunicación entre fragmentos
+
+El envío de datos entre Fragments se puede lograr de varias maneras, la forma recomendada de pasar datos entre Fragments es ahora las API de resultados de Fragment, donde pasar los datos es manejado por un FragmentManager, y los Fragmentos se pueden configurar para recibir y enviar datos.
+
+FragmentManager implementa **FragmentResultOwner**. Esto significa que un FragmentManager puede actuar como un almacenamiento central para los resultados de fragmentos. El cambio permite que los fragmentos separados se comuniquen entre sí configurando los resultados de fragmentos y escuchando esos resultados sin que los fragmentos tengan referencias directas entre sí.
+
+Si un Fragment espera recibir datos, puede registrar un FragmentResultListener en un FragmentManager y especificar una clave para identificar los datos que espera, esto actúa como un filtro para los datos que el FragmentManager lo envía:
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Use the Kotlin extension in the fragment-ktx artifact
+        setResultListener("requestKey") { key, bundle ->
+            // We use a String here, but any type that can be put in a Bundle is supported
+            val result = bundle.getString("bundleKey")
+            // Do something with the result...
+        }
+    }
 
 ## Ciclo de vida de un fragmento
 
@@ -232,6 +281,9 @@ Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
 Es cómo cada uno se almacena en su pila de actividades respectiva. Cuando se detiene una actividad, de forma predeterminada, se dispone en una pila de actividades administrada por el sistema (de modo que el usuario pueda navegar hasta ella con el botón Atrás). Sin embargo, un fragmento se dispone en una pila de retroceso administrada por la actividad anfitriona solo cuando solicitas explícitamente que se guarde la instancia mediante la llamada a addToBackStack() durante una transacción que elimina el fragmento.
    
+
+<br/>
+<br/>
 
 **Enlaces:**
 
