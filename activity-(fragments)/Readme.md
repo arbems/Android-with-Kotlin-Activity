@@ -2,15 +2,17 @@
 
 Código de ejemplo de fragments en Android con Kotlin.
 
-Un [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419) representa un comportamiento o una parte de la interfaz de usuario en una [FragmentActivity](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity?hl=es-419).
+[Crear un fragmento](##Crear un fragmento)
 
-Una actividad puede tener multiples fragmentos y un fragmento se puede incluir en diferentes actividades.
+Los fragmentos sirven como contenedores reutilizables dentro de tu app, lo que te permite presentar el mismo diseño de interfaz de usuario en una variedad de actividades y configuraciones de diseño.
 
 Un fragmento es como una sección modular de una actividad que tiene un ciclo de vida propio, que recibe sus propios eventos de entrada y que puedes agregar o quitar mientras la actividad se esté ejecutando.
 
 El ciclo de vida de un fragmento esta afectado por el ciclo de vida de su actividad, cuando realizas un transacción de fragmentos puedes agregarlo a la pila de actividades, esta pila de actividades le permite al usuario invertir una transacción de fragmentos (navegar hacia atrás) al presionar el botón Atrás.
 
-## Crear un fragmento
+Un [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419) representa un comportamiento o una parte de la interfaz de usuario en una [FragmentActivity](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity?hl=es-419).
+
+##Crear un fragmento
 
 Para crear un fragmento, debes crear una subclase de [**Fragment**](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419). Existen también algunas subclases que quizá desees extender, en lugar de la clase de base Fragment: 
 
@@ -22,11 +24,11 @@ Para crear un fragmento, debes crear una subclase de [**Fragment**](https://deve
 
 Puedes insertar un fragmento en el diseño de la actividad declarando el fragmento en el archivo de diseño, como elemento, o desde el código de tu aplicación agregándolo a un archivo existente ViewGroup.
 
-### Agregar una interfaz de usuario
+### Crear clase Fragment y agregar una UI
 
 Un fragmento generalmente se usa como parte de la interfaz de usuario de una actividad y le aporta su propio diseño.
 
-Implementar el método de devolución de llamada onCreateView() para proporcionar un diseño para un fragmento, puedes inflarlo desde un recurso de diseño definido en XML.
+Implementa la devolución de llamada onCreateView() que es la único que necesitas para ejecutar un fragmento:
 
     class ExampleFragment : Fragment() {
     
@@ -35,13 +37,19 @@ Implementar el método de devolución de llamada onCreateView() para proporciona
                 container: ViewGroup?,
                 savedInstanceState: Bundle?
         ): View {
-            // Inflate the layout for this fragment
             return inflater.inflate(R.layout.example_fragment, container, false)
         }
     }
 
+Proporciona un diseño desde un recurso de diseño definido en XML:
+    
+    // Inflate the layout for this fragment
+    return inflater.inflate(R.layout.example_fragment, container, false)
+    
+
 `Nota: Si tu fragmento es una subclase de ListFragment, la implementación predeterminada muestra un ListView desde onCreateView(), de modo que no necesitas implementarla.`
 
+El método onCreateView():
 * **inflater** es el objeto LayoutInflater que se puede usar para inflar cualquier vista en el fragmento.
 * **container** es el ViewGroup principal (del diseño de la actividad) en el cual se insertara el diseño del fragmento.
 * **savedInstanceState** es un bundle que proporciona datos acerca de la instancia previa del fragmento si el fragmento se está reanudando.
@@ -51,9 +59,13 @@ El método inflate():
 * **ViewGroup** 
 * **Boolean** que indica si se debe anexar el diseño aumentado al ViewGroup (en este caso, es falso porque el sistema ya está insertando el diseño aumentado al container; al pasar "true", se crearía un grupo de vistas redundante en el diseño final)
 
-### Agregar fragmento a actividad
+### Agregar un fragmento a una actividad
 
-#### 1. Primera opción es declarando el fragmento en el archivo de diseño de la actividad.
+#### 1. Declarando el fragmento en el archivo de diseño de la actividad.
+
+Agregando un fragmento al diseño de una actividad mediante la definición del fragmento en el archivo XML de diseño.
+
+Cuando el sistema crea el diseño de esta actividad, crea una instancia para cada fragmento especificado en el diseño, además de llamar al método onCreateView(), con el objetivo de recuperar el diseño de cada fragmento. El sistema inserta el objeto View que muestra el fragmento directamente en lugar del elemento `<fragment>`.
     
         <?xml version="1.0" encoding="utf-8"?>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -72,11 +84,11 @@ El método inflate():
                     android:layout_height="match_parent" />
         </LinearLayout>
 
-Cuando el sistema crea el diseño de esta actividad, crea una instancia para cada fragmento especificado en el diseño, además de llamar al método onCreateView(), con el objetivo de recuperar el diseño de cada fragmento. El sistema inserta el objeto View que muestra el fragmento directamente en lugar del elemento <fragment>.
+`Nota: Cuando agregas un fragmento al diseño de una actividad mediante la definición del fragmento en el archivo XML de diseño, no puedes quitar el fragmento en el tiempo de ejecución. Si planeas intercambiar fragmentos durante la interacción del usuario, debes agregar el fragmento a la actividad cuando esta recién se inicia, como se muestra en Cómo crear una IU flexible.`
 
-#### 2. Segunda opción es guardando el fragmento de forma programática en un ViewGroup existente.
+#### 2. Guardando el fragmento de forma programática en un ViewGroup existente.
 
-Mientras la actividad se está ejecutando, puedes agregar fragmentos al diseño. Solo hay que especificar un ViewGroup para colocar el fragmento, usando la API de FragmentTransaction.
+Agregar fragmentos al diseño de manera dinámica usando la API de FragmentTransaction, mientras la actividad se está ejecutando. Solo hay que especificar un ViewGroup para colocar el fragmento.
 
 ## Administrar fragmentos
 
@@ -152,15 +164,18 @@ Llamar a commit() no realiza la transacción inmediatamente, sin embargo, si es 
 
 ## Comunicación entre fragmento y actividad
 
-Si bien un Fragment se implementa como un objeto dependiente de un FragmentActivity y puede usarse dentro de múltiples actividades, una instancia determinada de un fragmento está directamente vinculada a la actividad que la contiene.
+Un Fragment se implementa como un objeto dependiente de un FragmentActivity y puede usarse dentro de múltiples actividades, pero una instancia determinada de un fragmento está directamente vinculada a la actividad que la contiene.
 
-El fragmento puede acceder a la instancia FragmentActivity con getActivity() y realizar tareas de manera sencilla, como buscar una vista en el diseño de la actividad:
+El fragmento puede acceder a la instancia FragmentActivity con getActivity() y realizar tareas como buscar una vista en el diseño de la actividad:
 
     val listView: View? = activity?.findViewById(R.id.list)
     
 La actividad puede llamar a métodos del fragmento mediante la adquisición de una referencia a Fragment desde FragmentManager usando findFragmentById() o findFragmentByTag():
 
     val fragment = supportFragmentManager.findFragmentById(R.id.example_fragment) as ExampleFragment
+####
+    val fragment = supportFragmentManager.findFragmentByTag("fragment_dynamic")
+    
 
 ## Comunicación entre fragmentos dentro de una actividad
 
@@ -215,8 +230,12 @@ Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
 Es cómo cada uno se almacena en su pila de actividades respectiva. Cuando se detiene una actividad, de forma predeterminada, se dispone en una pila de actividades administrada por el sistema (de modo que el usuario pueda navegar hasta ella con el botón Atrás). Sin embargo, un fragmento se dispone en una pila de retroceso administrada por la actividad anfitriona solo cuando solicitas explícitamente que se guarde la instancia mediante la llamada a addToBackStack() durante una transacción que elimina el fragmento.
    
-   
 
+**Enlaces:**
+
+[**Testing Fragments**](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments)/testing)
+
+  
 ## Attribution
 
 This code was created by [arbems](https://github.com/arbems) in 2020.
