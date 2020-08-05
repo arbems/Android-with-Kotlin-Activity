@@ -1,10 +1,26 @@
 # Android con Kotlin - Fragments - Crear un fragmento
 
+Este código contiene ejemplos de como crear un fragmento en Android con Kotlin.
+
+Los fragmentos sirven como contenedores reutilizables dentro de tu app, lo que te permite presentar el mismo diseño de interfaz de usuario en una variedad de actividades y configuraciones de diseño.
+
+Un fragmento es como una sección modular de una actividad que tiene un ciclo de vida propio, que recibe sus propios eventos de entrada y que puedes agregar o quitar mientras la actividad se esté ejecutando.
+
+El ciclo de vida de un fragmento está afectado por el ciclo de vida de su actividad, cuando realizas un transacción de fragmentos puedes agregarlo a la pila de actividades, esta pila de actividades le permite al usuario invertir una transacción de fragmentos (navegar hacia atrás) al presionar el botón Atrás.
+
+Puedes insertar un fragmento en el diseño de la actividad declarando el fragmento en el archivo de diseño, como elemento, o desde el código de tu aplicación agregándolo a un archivo existente ViewGroup.
+
 ### Crear clase Fragment
 
-Un fragmento generalmente se usa como parte de la interfaz de usuario de una actividad y le aporta su propio diseño.
+Para crear un fragmento, debes crear una subclase de [**Fragment**](https://developer.android.com/reference/androidx/fragment/app/Fragment?hl=es-419) que representa un comportamiento o una parte de la interfaz de usuario en una [FragmentActivity](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity?hl=es-419). Existen también algunas subclases que quizá desees extender, en lugar de la clase de base Fragment: 
 
-Implementa la devolución de llamada onCreateView() que es la única que se necesita para ejecutar un fragmento:
+* [**DialogFragment**](https://developer.android.com/reference/androidx/fragment/app/DialogFragment?hl=es-419) - Muestra un diálogo flotante. Usar esta clase para crear un diálogo es una buena alternativa al uso de métodos del asistente de diálogos en la clase Activity, ya que puedes incorporar un diálogo del fragmento en la pila de actividades de fragmentos administrados por la actividad, lo que le permite al usuario volver a un fragmento descartado.
+
+* [**ListFragment**](https://developer.android.com/reference/androidx/fragment/app/ListFragment?hl=es-419) - Muestra una lista de elementos administrados por un adaptador, al igual que ListActivity. Proporciona varios métodos para administrar una vista de lista, como la devolución de llamada onListItemClick() para manipular eventos de clic. (Ten en cuenta que el método preferido para mostrar una lista es utilizar **RecyclerView** en lugar de ListView. En este caso, necesitarías crear un fragmento que incluya un RecyclerView en su diseño.
+
+* [**PreferenceFragmentCompat**](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat?hl=en) - Muestra una jerarquía de objetos Preference en forma de lista. Este objeto se usa a fin de crear una pantalla de configuración para tu app.
+
+Implementa **onCreateView**() que es la única devolución de llamada que se necesita para ejecutar un fragmento:
 
     class ExampleFragment : Fragment() {
     
