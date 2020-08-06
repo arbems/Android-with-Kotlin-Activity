@@ -4,38 +4,63 @@ Este código contiene ejemplos del ciclo de vida de un Fragment en Android con K
 
 La clase Fragment tiene un código que se asemeja bastante a una Activity. Contiene métodos de devolución de llamada similares a los de una actividad.
 
-* **onCreated**() - Llamado para hacer la creación inicial de un fragmento. Esto se llama después de onAttach() y antes de onCreateView().
-Tenga en cuenta que esto se puede llamar mientras la actividad del fragmento aún está en proceso de creación.
+![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0001.png)
 
-* **onStart**() - Llamado justo antes de que el fragmento sea visible para el usuario.
+## Métodos de devolución de llamada similares a los de una actividad
 
-* **onResume**() - Se llama cuando el fragmento es visible para el usuario y se ejecuta activamente. Esto generalmente está vinculado a Activity.onResume del ciclo de vida de la Actividad que lo contiene.
+#### onCreated()
+Se llama para hacer la creación inicial de un fragmento.<br/> 
+`Tenga en cuenta que esto se puede llamar mientras la actividad del fragmento aún está en proceso de creación.`
 
-* **onPause**() - Llamado cuando el Fragmento ya no esta en resumed. Esto generalmente está vinculado a Activity.onPause del ciclo de vida de la Actividad que lo contiene.
+#### onStart()
+Se llama cuando el Fragmento es visible para el usuario. Esto generalmente está vinculado a Activity onStart() del ciclo de vida de la Actividad que lo contiene.<br/>
 
-* **onStop**() - Se llama cuando el Fragmento ya no esta started. Esto generalmente está vinculado a Activity.onStop del ciclo de vida de la Actividad que lo contiene.
+#### onResume()
+Se llama cuando el fragmento es visible para el usuario y se ejecuta activamente. Esto generalmente está vinculado a Activity onResume() del ciclo de vida de la Actividad que lo contiene.
 
-* **onDestroy**() - Se llama cuando el fragmento ya no está en uso. Esto se llama después de onStop() y antes de onDetach().
+#### onPause()
+Se llama cuando el Fragmento ya no está en resumed. Esto generalmente está vinculado a Activity onPause() del ciclo de vida de la Actividad que lo contiene.
 
-Los fragmentos tienen algunas devoluciones de llamada del ciclo de vida adicionales.
+#### onStop()
+Se llama cuando el Fragmento ya no esta started. Esto generalmente está vinculado a Activity onStop() del ciclo de vida de la Actividad que lo contiene.
+
+#### onDestroy()
+Se llama cuando el fragmento ya no está en uso.<br/> 
+
+
+## Métodos de devolución de llamada adicionales del ciclo de vida de los fragmentos
 
 Estas abordan la interacción única con la actividad para poder realizar acciones como crear y destruir la IU del fragmento. Estos métodos de devolución de llamada adicionales son los siguientes:
 
-* **onAttach**() - Se llama cuando se asocia el fragmento con la actividad. Se llamará a onCreate() después de esto.
+#### onAttach()
+Se llama cuando un fragmento se adjunta por primera vez a su contexto.<br/> 
 
-* **onCreateView**() - Llamado para que el fragmento instanciara su vista de interfaz de usuario. Esto es opcional, y los fragmentos no gráficos pueden devolver nulo. Esto se llamará después de onCreate().
+#### onCreateView()
+Llamado para que el fragmento instanciara su vista de interfaz de usuario.<br/>
+Esto es opcional, y los fragmentos no gráficos pueden devolver nulo.<br/>
+Se recomienda inflar solo el diseño en este método y mover la lógica que opera en la Vista devuelta a onViewCreated()<br/>
 
-* **onViewCreated()** - Se llama inmediatamente después de que onCreateView() haya regresado, pero antes de que cualquier estado guardado se haya restaurado en la vista. Esto les da a las subclases la oportunidad de inicializarse una vez que saben que su jerarquía de vistas se ha creado por completo.
+#### onViewCreated()
+Se llama inmediatamente después de que onCreateView(), pero antes de que cualquier estado guardado se haya restaurado en la vista.<br/> 
+Esto les da a las subclases la oportunidad de inicializarse una vez que saben que su jerarquía de vistas se ha creado por completo. Sin embargo, la jerarquía de vista del fragmento no está asociada a su padre en este punto.
 
-* **onDestroyView**() - Se invoca cuando la vista creada previamente por onCreateView se ha separado del fragmento. La próxima vez que deba mostrarse el fragmento, se creará una nueva vista. Esto se llama después de onStop() y antes de onDestroy().
+#### onActivityCreated()
+Llamado cuando la actividad del fragmento ha sido creada y jerarquía de vista del fragmento instanciada.<br/>
+Se puede usar para hacer la inicialización final una vez que estas piezas están en su lugar, como recuperar vistas o restaurar el estado.<br/>
 
-* **onDetach**() - Se llama cuando el fragmento ya no está unido a su actividad. Esto se llama después de onDestroy().
+#### onViewStateRestored()
+Se invoca cuando todo el estado guardado se ha restaurado en la jerarquía de vista del fragmento.<br/>
+Esto se puede usar para realizar la inicialización en función del estado guardado en el que está permitiendo que la jerarquía de la vista se rastree por sí misma.<br/>
+
+#### onDestroyView()
+Se invoca cuando la vista creada previamente por onCreateView() se ha separado del fragmento. La próxima vez que deba mostrarse el fragmento, se creará una nueva vista. <br/>
+
+#### onDetach()
+Se llama cuando el fragmento ya no está unido a su actividad.
 
 `Las aplicaciones deben implementar al menos tres métodos para cada fragmento (onCreate, onCreateView y onPause).`
-
-![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0001.png)
    
-#### Estado de los fragments
+## Estado de los fragments
 
 Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
