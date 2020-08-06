@@ -30,7 +30,11 @@ Se llama cuando el fragmento ya no está en uso.<br/>
 
 ## Métodos de devolución de llamada adicionales del ciclo de vida de los fragmentos
 
-Estas abordan la interacción única con la actividad para poder realizar acciones como crear y destruir la IU del fragmento. Estos métodos de devolución de llamada adicionales son los siguientes:
+El ciclo de vida de la actividad en la que reside el fragmento afecta directamente al ciclo de vida del fragmento, de modo que cada devolución de llamada del ciclo de vida de la actividad genera una devolución de llamada similar para cada fragmento.
+
+Los fragmentos tienen algunas devoluciones de llamada del ciclo de vida adicionales. Estas abordan la interacción única con la actividad para poder realizar acciones como crear y destruir la IU del fragmento. 
+
+Estos métodos de devolución de llamada adicionales son los siguientes:
 
 #### onAttach()
 Se llama cuando un fragmento se adjunta por primera vez a su contexto.<br/> 
