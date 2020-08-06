@@ -20,20 +20,55 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <!--<fragment
+                    android:name="com.arbems.fragmentlifecycle.FirstFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />-->
+
+            </FrameLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
 
                 <Button
-                    android:id="@+id/buttonOpenActivity"
+                    android:id="@+id/buttonReset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Testing Fragment"
-                    app:layout_constraintBottom_toTopOf="@+id/textView2"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="reset"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    app:layout_constraintStart_toEndOf="@+id/buttonReset"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <Button
+                    android:id="@+id/buttonReplace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Replace"
+                    app:layout_constraintStart_toEndOf="@+id/buttonAdd"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <Button
+                    android:id="@+id/buttonRemove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remove"
+                    app:layout_constraintStart_toEndOf="@+id/buttonReplace"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <TextView
                     android:id="@+id/textView2"

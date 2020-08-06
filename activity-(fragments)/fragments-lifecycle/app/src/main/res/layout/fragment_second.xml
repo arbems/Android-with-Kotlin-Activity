@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondaryFragment"
-    android:background="#eeeeee">
+    tools:context=".SecondFragment"
+    android:background="#cce5cc">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/secondary_fragment" />
+        android:text="@string/second_fragment"
+        android:textSize="18sp" />
+
 </FrameLayout>

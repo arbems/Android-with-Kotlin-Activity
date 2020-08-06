@@ -25,7 +25,7 @@ Se llama cuando el Fragmento ya no está en resumed. Esto generalmente está vin
 Se llama cuando el Fragmento ya no esta started. Esto generalmente está vinculado a Activity onStop() del ciclo de vida de la Actividad que lo contiene.
 
 #### onDestroy()
-Se llama cuando el fragmento ya no está en uso.<br/> 
+Se llama cuando el fragmento ya no está en uso.<br/>
 
 
 ## Métodos de devolución de llamada adicionales del ciclo de vida de los fragmentos

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">FragmentLifecycle</string>
+    <string name="app_name">Ciclo de vida fragmento</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="parent_fragment">parent_fragment</string>
-    <string name="secondary_fragment">secondary_fragment</string>
+    <string name="first_fragment">First fragment!</string>
+    <string name="second_fragment">Second fragment!</string>
 </resources>

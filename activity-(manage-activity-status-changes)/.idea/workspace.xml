@@ -7,15 +7,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8e140a8-cef4-4a4d-9f68-c6f2a030426d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../activity-(android-manifest)/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(android-manifest)/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/HelperFragmentTransactions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/MainViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/SecondActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/SecondFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/activity_second.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/java/com/arbems/activitylifecycle/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/ParentFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/FirstFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/java/com/arbems/fragmentlifecycle/SecondaryFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/fragment_parent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/fragment_first.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/fragment_secondary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/layout/fragment_second.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(fragments)/fragments-lifecycle/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(lifecycle)/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/java/com/arbems/activitylifecycle/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/java/com/arbems/activitylifecycle/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/layout/activity_second.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/layout/activity_second.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../activity-(lifecycle)/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/arbems/manageactivitystatuschanges/AActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/arbems/manageactivitystatuschanges/SecondActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/arbems/manageactivitystatuschanges/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/arbems/manageactivitystatuschanges/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_second.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="3498560c9805" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -46,6 +83,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="3498560c9805" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-08-06T14:42:23.997Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
@@ -142,22 +181,30 @@
       <screen x="0" y="23" width="2048" height="1066" />
     </state>
     <state x="612" y="318" key="AndroidCreateResourceDirectoryDialog/0.23.2048.1066/2048.95.1920.1057@0.23.2048.1066" timestamp="1596470460780" />
-    <state width="2006" height="293" key="GridCell.Tab.0.bottom" timestamp="1596469206737">
-      <screen x="0" y="23" width="2048" height="1066" />
+    <state width="1878" height="292" key="GridCell.Tab.0.bottom" timestamp="1596725811269">
+      <screen x="2048" y="95" width="1920" height="1057" />
     </state>
     <state width="2006" height="293" key="GridCell.Tab.0.bottom/0.23.2048.1066/2048.95.1920.1057@0.23.2048.1066" timestamp="1596469206737" />
-    <state width="2006" height="293" key="GridCell.Tab.0.center" timestamp="1596469206737">
-      <screen x="0" y="23" width="2048" height="1066" />
+    <state width="1878" height="292" key="GridCell.Tab.0.bottom/0.23.2048.1067/2048.95.1920.1057@2048.95.1920.1057" timestamp="1596725811269" />
+    <state width="2006" height="292" key="GridCell.Tab.0.bottom/0.23.2048.1068/2048.95.1920.1057@0.23.2048.1068" timestamp="1596724923125" />
+    <state width="1878" height="292" key="GridCell.Tab.0.center" timestamp="1596725811268">
+      <screen x="2048" y="95" width="1920" height="1057" />
     </state>
     <state width="2006" height="293" key="GridCell.Tab.0.center/0.23.2048.1066/2048.95.1920.1057@0.23.2048.1066" timestamp="1596469206737" />
-    <state width="2006" height="293" key="GridCell.Tab.0.left" timestamp="1596469206737">
-      <screen x="0" y="23" width="2048" height="1066" />
+    <state width="1878" height="292" key="GridCell.Tab.0.center/0.23.2048.1067/2048.95.1920.1057@2048.95.1920.1057" timestamp="1596725811268" />
+    <state width="2006" height="292" key="GridCell.Tab.0.center/0.23.2048.1068/2048.95.1920.1057@0.23.2048.1068" timestamp="1596724923125" />
+    <state width="1878" height="292" key="GridCell.Tab.0.left" timestamp="1596725811268">
+      <screen x="2048" y="95" width="1920" height="1057" />
     </state>
     <state width="2006" height="293" key="GridCell.Tab.0.left/0.23.2048.1066/2048.95.1920.1057@0.23.2048.1066" timestamp="1596469206737" />
-    <state width="2006" height="293" key="GridCell.Tab.0.right" timestamp="1596469206737">
-      <screen x="0" y="23" width="2048" height="1066" />
+    <state width="1878" height="292" key="GridCell.Tab.0.left/0.23.2048.1067/2048.95.1920.1057@2048.95.1920.1057" timestamp="1596725811268" />
+    <state width="2006" height="292" key="GridCell.Tab.0.left/0.23.2048.1068/2048.95.1920.1057@0.23.2048.1068" timestamp="1596724923124" />
+    <state width="1878" height="292" key="GridCell.Tab.0.right" timestamp="1596725811268">
+      <screen x="2048" y="95" width="1920" height="1057" />
     </state>
     <state width="2006" height="293" key="GridCell.Tab.0.right/0.23.2048.1066/2048.95.1920.1057@0.23.2048.1066" timestamp="1596469206737" />
+    <state width="1878" height="292" key="GridCell.Tab.0.right/0.23.2048.1067/2048.95.1920.1057@2048.95.1920.1057" timestamp="1596725811268" />
+    <state width="2006" height="292" key="GridCell.Tab.0.right/0.23.2048.1068/2048.95.1920.1057@0.23.2048.1068" timestamp="1596724923125" />
     <state x="525" y="195" key="SettingsEditor" timestamp="1596468884809">
       <screen x="0" y="23" width="2048" height="1066" />
     </state>
