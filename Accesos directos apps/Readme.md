@@ -10,7 +10,7 @@ Cada acceso directo hace referencia a uno o más intents, cada uno de los cuales
 
 `Nota: Solo las actividades principales (actividades que manejan la Intent.ACTION_MAIN acción y la Intent.CATEGORY_LAUNCHER categoría) pueden tener accesos directos. Si una aplicación tiene múltiples actividades principales, debe definir el conjunto de accesos directos para cada actividad.`
 
-![static and dynamic shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(shortcuts-to-apps)/0001.png)
+![static and dynamic shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Accesos%20directos%20apps/0001.png)
 `Usando los accesos directos de aplicaciones, puede mostrar acciones clave y llevar a los usuarios a su aplicación al instante`
 
 ### Tipos de accesos directos
@@ -125,7 +125,7 @@ A diferencia de los accesos directos estáticos y dinámicos, los accesos direct
 
 `En Android 8.0 (API nivel 26) y superior, puedes crear accesos directos anclados`
 
-![pinned shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(shortcuts-to-apps)/0002.png)
+![pinned shortcuts](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Accesos%20directos%20apps/0002.png)
 
 1. Use **isRequestPinShortcutSupported()** para verificar que el iniciador predeterminado del dispositivo admite la fijación de accesos directos en la aplicación.
 
