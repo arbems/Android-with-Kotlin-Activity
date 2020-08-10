@@ -1,10 +1,10 @@
 # Android con Kotlin - Fragments - Ciclo de vida de un fragmento
 
-Este código contiene ejemplos del ciclo de vida de un Fragment en Android con Kotlin.
+Este código contiene código de ejemplos del ciclo de vida de un Fragmento en Android con Kotlin.
 
 La clase Fragment tiene un código que se asemeja bastante a una Activity. Contiene métodos de devolución de llamada similares a los de una actividad.
 
-![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0001.png)
+![Lifecycle Fragments](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos/0001.png)
 
 ## Métodos de devolución de llamada similares a los de una actividad
 
@@ -68,7 +68,7 @@ Se llama cuando el fragmento ya no está unido a su actividad.
 
 Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
-![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0002.png)
+![Lifecycle Fragments](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos//0002.png)
 
 **Resumed** (Reanudado), el fragmento está visible en la actividad que se está ejecutando.
 

@@ -2,7 +2,7 @@
 
 Puedes reutilizar tus fragmentos en diferentes configuraciones de diseño a fin de optimizar la experiencia de usuario en función del espacio de pantalla disponible.
 
-![Lifecycle Fragments](https://github.com/arbems/Android-with-Kotlin-Activity/blob/master/activity-(fragments)/0003.png)
+![Lifecycle Fragments](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos//0003.png)
 `Se muestran dos fragmentos en distintas configuraciones para la misma actividad en diferentes tamaños de pantalla. En una pantalla grande, ambos fragmentos pueden ubicarse uno junto al otro. En cambio, en un móvil, solo puede mostrarse un fragmento a la vez, de modo que uno reemplaza al otro a medida que el usuario navega.`
 
 Para esto usamos la clase FragmentManager que permite agregar, quitar y reemplazar fragmentos en una actividad durante el tiempo de ejecución a fin de crear una experiencia dinámica.
@@ -82,4 +82,4 @@ Llamar a commit() no realiza la transacción inmediatamente, sin embargo, si es 
 
 ## Attribution
 
-This code was created by [arbems](https://github.com/arbems) in 2020.
+This code was created by [arbems](https://raw.githubusercontent.com//arbems) in 2020.
