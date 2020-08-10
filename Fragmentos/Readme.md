@@ -1,4 +1,4 @@
-# Android con Kotlin - Activity - Fragments
+# Android con Kotlin - Activity - Fragmentos
 
 #### [Administrar fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos/Administrar%20fragmentos)
 
