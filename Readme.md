@@ -1,6 +1,6 @@
 # Android con Kotlin - Activity
 
-#### [Accesos directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Acceso%20directos%20apps)
+#### [Accesos directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Accesos%20directos%20apps)
 
 #### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
 
