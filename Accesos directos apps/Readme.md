@@ -1,4 +1,4 @@
-# Android con Kotlin - Activity - Acceso directo a aplicaciones
+# Android con Kotlin - Activity - Accesos directos apps
 
 Código de ejemplo que muestra como crear y administrar accesos directos a aplicaciones en Android con Kotlin.
 

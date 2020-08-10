@@ -10,27 +10,27 @@
 
 #### [Ciclo de vida de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad) 
 
-#### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Configurar-el-archivo-de-manifiesto-para-actividades)
+#### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Configurar%20el%20archivo%20de%20manifiesto%20para%20actividades)
 
-#### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Compatibilidad-con-modo-multi-ventana)
+#### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Compatibilidad%20con%20modo%20multi-ventana)
 
 #### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos)
 
-#### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar-y-restablecer-el-estado-de-la-IU)
+#### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
 
-#### [Interactuando con otras apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Interactuando-con-otras-apps)
+#### [Interactuando con otras apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Interactuando%20con%20otras%20apps)
 
-#### [Navegación entre actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Navegación-entre-actividades)
+#### [Navegación entre actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Navegación%20entre%20actividades)
 
-#### [Objetos parcelables y paquetes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Objetos-parcelables-y-paquetes)
+#### [Objetos parcelables y paquetes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Objetos%20parcelables%20y%20paquetes)
 
-#### [Pantalla recientes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Pantalla-recientes)
+#### [Pantalla recientes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Pantalla%20recientes)
 
-#### [Restricciones para iniciar actividades en segundo plano](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Restricciones-para-iniciar-actividades-en-segundo-plano)
+#### [Restricciones para iniciar actividades en segundo plano](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Restricciones%20para%20iniciar%20actividades%20en%20segundo%20plano)
 
-#### [Tareas y pilas de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Tareas-y-pilas-de-actividades)
+#### [Tareas y pilas de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Tareas%20y%20pilas%20de%20actividades)
 
-#### [Test de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Test-de-actividades)
+#### [Test de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Test%20de%20actividades)
 
 ## Attribution
 
