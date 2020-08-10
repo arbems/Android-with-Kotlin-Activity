@@ -1,36 +1,36 @@
 # Android con Kotlin - Activity
 
-#### [Acceso directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(shortcuts-to-apps))
+#### [Acceso directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Acceso-directos-apps)
 
-#### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(manage-activity-status-changes))
+#### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar-los-cambios-de-estado-de-la-actividad)
 
-#### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(android-manifest))
+#### [Ciclo de vida de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo-de-vida-de-la-actividad) 
 
-#### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(android-app-links))
+#### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Configurar-el-archivo-de-manifiesto-para-actividades)
 
-#### [App Widgets](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(app-widgets))
+#### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Android-App-Links)
 
-#### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(multi-window-compatibility))
+#### [App Widgets](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/App-Widgets)
 
-#### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(fragments))
+#### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Compatibilidad-con-modo-multi-ventana)
 
-#### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(save-and-reset-ui-status))
+#### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos)
 
-#### [Interactuando con otras apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(interacting-with-other-apps))
+#### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar-y-restablecer-el-estado-de-la-IU)
 
-#### [Lifecycle](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(manage-activity-status-changes)) 
+#### [Interactuando con otras apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Interactuando-con-otras-apps)
 
-#### [Navegación entre actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(navigation-between-activities))
+#### [Navegación entre actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Navegación-entre-actividades)
 
-#### [Objetos parcelables y paquetes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(parceable-and-bundle))
+#### [Objetos parcelables y paquetes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Objetos-parcelables-y-paquetes)
 
-#### [Pantalla recientes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(recent-screens))
+#### [Pantalla recientes](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Pantalla-recientes)
 
-#### [Restricciones para iniciar actividades en segundo plano](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(restrictions-for-starting-background-activities))
+#### [Restricciones para iniciar actividades en segundo plano](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Restricciones-para-iniciar-actividades-en-segundo-plano)
 
-#### [Tareas y pilas de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(tasks-and-stacks-of-activities))
+#### [Tareas y pilas de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Tareas-y-pilas-de-actividades)
 
-#### [Test de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/activity-(activities-test))
+#### [Test de actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Test-de-actividades)
 
 ## Attribution
 
