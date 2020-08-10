@@ -1,16 +1,16 @@
 # Android con Kotlin - Activity
 
-#### [Acceso directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Acceso-directos-apps)
+#### [Accesos directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Acceso%20directos%20apps)
 
-#### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar-los-cambios-de-estado-de-la-actividad)
+#### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
 
-#### [Ciclo de vida de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo-de-vida-de-la-actividad) 
+#### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Android%20App%20Links)
+
+#### [App Widgets](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/App%20Widgets)
+
+#### [Ciclo de vida de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad) 
 
 #### [Configurar el archivo de manifiesto para actividades](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Configurar-el-archivo-de-manifiesto-para-actividades)
-
-#### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Android-App-Links)
-
-#### [App Widgets](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/App-Widgets)
 
 #### [Compatibilidad con modo multi-ventana](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Compatibilidad-con-modo-multi-ventana)
 
