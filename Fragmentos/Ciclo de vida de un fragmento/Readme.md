@@ -1,12 +1,16 @@
 # Android con Kotlin - Fragments - Ciclo de vida de un fragmento
 
-Este código contiene código de ejemplos del ciclo de vida de un Fragmento en Android con Kotlin.
+Proyecto con códigos de ejemplo del ciclo de vida de un Fragmento en Android con Kotlin.
 
 La clase Fragment tiene un código que se asemeja bastante a una Activity. Contiene métodos de devolución de llamada similares a los de una actividad.
 
-![Lifecycle Fragments](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos/0001.png)
+<img src="https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos/0001.png" width="1100">
 
-## Métodos de devolución de llamada similares a los de una actividad
+## Devolución de llamadas del ciclo de vida de un fragmento
+
+El ciclo de vida de la actividad en la que reside el fragmento afecta directamente al ciclo de vida del fragmento, de modo que cada devolución de llamada del ciclo de vida de la actividad genera una devolución de llamada similar para cada fragmento.
+
+Son similares a los de una actividad:
 
 #### onCreated()
 Se llama para hacer la creación inicial de un fragmento.<br/> 
@@ -28,9 +32,7 @@ Se llama cuando el Fragmento ya no esta started. Esto generalmente está vincula
 Se llama cuando el fragmento ya no está en uso.<br/>
 
 
-## Métodos de devolución de llamada adicionales del ciclo de vida de los fragmentos
-
-El ciclo de vida de la actividad en la que reside el fragmento afecta directamente al ciclo de vida del fragmento, de modo que cada devolución de llamada del ciclo de vida de la actividad genera una devolución de llamada similar para cada fragmento.
+### Devolución de llamada adicionales de un fragmento:
 
 Los fragmentos tienen algunas devoluciones de llamada del ciclo de vida adicionales. Estas abordan la interacción única con la actividad para poder realizar acciones como crear y destruir la IU del fragmento. 
 
@@ -64,11 +66,11 @@ Se llama cuando el fragmento ya no está unido a su actividad.
 
 `Las aplicaciones deben implementar al menos tres métodos para cada fragmento (onCreate, onCreateView y onPause).`
    
-## Estado de los fragments
+## Estado de los fragmentos
 
 Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
-![Lifecycle Fragments](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos//0002.png)
+<img src="https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Fragmentos//0002.png" width="620"><br/>
 
 **Resumed** (Reanudado), el fragmento está visible en la actividad que se está ejecutando.
 
@@ -80,6 +82,13 @@ Efecto del ciclo de vida de la actividad en el ciclo de vida del fragmento:
 
 Es cómo cada uno se almacena en su pila de actividades respectiva. Cuando se detiene una actividad, de forma predeterminada, se dispone en una pila de actividades administrada por el sistema (de modo que el usuario pueda navegar hasta ella con el botón Atrás). Sin embargo, un fragmento se dispone en una pila de retroceso administrada por la actividad anfitriona solo cuando solicitas explícitamente que se guarde la instancia mediante la llamada a addToBackStack() durante una transacción que elimina el fragmento.
    
+## Enlaces
+
+![Ciclo de vida de una actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad)
+![Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
+![Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
+![Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
+![Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
 
 ## Attribution
 

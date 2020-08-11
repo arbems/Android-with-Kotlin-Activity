@@ -6,9 +6,15 @@ Diferentes eventos, algunos activados por el usuario y otros activados por el si
       
 ## Cambio de configuración
 
-Cuando se produce un cambio de configuración, la actividad se elimina y se vuelve a crear. Ejemplos de cambios de configuración: cambio entre las orientaciones vertical y horizontal, modo multiventana, cambios de idioma o de dispositivo de entrada.
+Cuando se produce un cambio de configuración, la actividad se elimina y se vuelve a crear. 
 
-![Configuration change](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0001.png)
+Ejemplos de cambios de configuración: 
+* Cambio entre orientación vertical y horizontal
+* Modo multi-ventana
+* Cambios de idioma
+* Cambios de dispositivo de entrada
+
+![Configuration change](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0001.png)
 
 `Usa una combinación de ViewModels, el método onSaveInstanceState() y el almacenamiento local persistente para conservar el estado de la IU de una actividad durante los cambios de configuración.`
 
@@ -16,7 +22,7 @@ Cuando se produce un cambio de configuración, la actividad se elimina y se vuel
 
 Si aparece en primer plano una nueva actividad o un nuevo diálogo que obtiene el foco y cubre parcialmente la actividad en progreso, la actividad cubierta pierde el foco y pasa al estado Detenida.
 
-![Nueva actividad o diálogo aparecen en primer plano](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0002.png)
+![Nueva actividad o diálogo aparecen en primer plano](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master//Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0002.png)
 
 `Cuando el usuario toca el botón de inicio o Recientes, el sistema se comporta como si la actividad actual hubiera perdido el foco.`
 
@@ -31,15 +37,13 @@ Si una actividad está en primer plano y el usuario toca el botón Atrás, esta 
     
     Recomendamos que invoques super.onBackPressed() desde el método anulado. De lo contrario, el comportamiento del botón Atrás puede resultar incoherente para el usuario.
 
-![El usuario toca botón Atrás](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0003.png)
-
-`Usa una combinación de ViewModels, el método onSaveInstanceState() y el almacenamiento local persistente para conservar el estado de la IU de una actividad durante los cambios de configuración.`
+![El usuario toca botón Atrás](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0003.png)
 
 ## El sistema elimina el proceso de la app
 
 Si una app está en segundo plano y el sistema necesita liberar memoria adicional para una app en primer plano, el sistema puede eliminar la que está en segundo plano a fin de liberar más memoria.
 
-![El sistema elimina el proceso de la app](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0004.png)
+![El sistema elimina el proceso de la app](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad/0004.png)
 
 ####
     Detener una aplicación de Android desde la consola:
