@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SecondActivity" android:label="Second Activity"></activity>
-        <activity android:name=".MainActivity" android:label="Activity Lifecycle">
+        <activity android:name=".MainActivity" android:label="Ciclo de vida actividad">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondActivity" android:label="Segundo Activity"></activity>
     </application>
 
 </manifest>

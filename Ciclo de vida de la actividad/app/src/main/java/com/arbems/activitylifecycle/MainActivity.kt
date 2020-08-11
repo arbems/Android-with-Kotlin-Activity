@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val lifecycleObserver = LifecycleObserver("MainActivity", lifecycle)
     private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-
-        lifecycle.addObserver(lifecycleObserver)
 
         buttonReset.setOnClickListener {
             viewModel.reset()

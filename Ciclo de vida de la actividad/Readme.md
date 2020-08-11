@@ -1,8 +1,12 @@
-# Android con Kotlin - Activity - Lifecycle
+# Android con Kotlin - Activity - Ciclo de vida de una actividad
 
-Código de ejemplo de ciclo de vida de una actividad en Android con Kotlin.
-               
-La clase Activity proporciona una serie de devoluciones de llamada que permiten a la actividad saber que cambió un estado, es decir, que el sistema está creando, deteniendo o reanudando una actividad, o bien finalizando el proceso en el que se encuentra.
+Proyecto con códigos de ejemplo de ciclo de vida de una actividad en Android con Kotlin.
+
+Las instancias de [Activity](https://developer.android.com/reference/android/app/Activity) de una app pasan por diferentes estados durante su ciclo de vida.
+
+La clase [Activity](https://developer.android.com/reference/android/app/Activity) proporciona una serie de devoluciones de llamada que permiten a la actividad saber que cambió un estado, es decir, que el sistema está creando, deteniendo o reanudando una actividad, o finalizando el proceso en el que se encuentra.
+
+Dentro de los métodos de devolución de llamada de ciclo de vida, puedes declarar el comportamiento que tendrá tu actividad cuando el usuario la abandone y la reanude.
 
 Hacer el trabajo preciso en el momento adecuado y administrar las transiciones correctamente hace que tu app sea más sólida y eficiente.
 
