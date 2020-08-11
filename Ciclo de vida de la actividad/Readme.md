@@ -19,7 +19,7 @@ Por ejemplo, una buena implementación de las devoluciones de llamada de un cicl
 
 ## Devoluciones de llamada de los ciclos de vida de la actividad
 
-![Lifecycle Activity](https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0002.png)
+<img src="https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0001.png" width="900">
 
 ### onCreate()
 
@@ -80,7 +80,7 @@ La devolución de llamada onDestroy() debe liberar todos los recursos que aún n
 
 ## Estados de la actividad
 
-![Lifecycle Activity](https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0001.png)
+<img src="https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0002.png" width="900">
 
 INITIALIZED (Inicializada)
 
@@ -107,8 +107,7 @@ Se termino de ejecutar la actividad.
 
 El sistema finaliza los procesos cuando necesita liberar RAM; la probabilidad de que el sistema finalice un proceso determinado dependerá del estado del proceso en ese momento.
 
-![Lifecycle Activity](https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0003.png)
-
+<img src="https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0003.png" width="900">
 
 ## Attribution
 
