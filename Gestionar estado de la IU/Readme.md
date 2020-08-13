@@ -1,6 +1,6 @@
 # Android con Kotlin - Activity - Guardar y restablecer el estado de la IU
 
-Código de ejemplo de como guardar y restablecer el estado de la IU usando ViewModels, el método onSaveInstanceState() y el almacenamiento persistente en Android con Kotlin.
+Código de ejemplo de como guardar y restablecer el estado de la IU usando ViewModels, SavedState, el método onSaveInstanceState() y el almacenamiento persistente en Android con Kotlin.
 
 Hay que conservar el estado de la IU de una actividad usando una combinación de **ViewModels**, el método **onSaveInstanceState()** y el **almacenamiento persistente**, cómo combinar estas opciones depende de la complejidad de los datos de la IU, los casos prácticos de tu app y la consideración de la velocidad de recuperación frente al uso de memoria.
        
@@ -32,12 +32,12 @@ El sistema hace todo lo posible para mantener el proceso de la app en la memoria
 
 Cuando las expectativas del usuario sobre el estado de la IU no coinciden con el comportamiento predeterminado del sistema, debes guardar y restablecer el estado de la IU del usuario para garantizar que la destrucción iniciada por el sistema sea transparente para el usuario.
 
-![Lifecycle Activity](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU/0001.png)
+![Lifecycle Activity](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Gestionar%20estado%20de%20la%20IU/0001.png)
 
 
-## Estado de instancia usando onSaveInstanceState()
+## Estado de la UI usando onSaveInstanceState()
 
-Usa **onSaveInstanceState()** si los datos de la IU son simples y ligeros, como un tipo de datos primitivos o un objeto simple (como String), puedes utilizar onSaveInstanceState() para mantener el estado de la IU tanto en los cambios de configuración como en la finalización del proceso iniciado por el sistema.
+Usa [**onSaveInstanceState()**](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) si los datos de la IU son simples y ligeros, como un tipo de datos primitivos o un objeto simple (como String), puedes utilizar onSaveInstanceState() para mantener el estado de la IU tanto en los cambios de configuración como en la finalización del proceso iniciado por el sistema.
 Aunque haya desaparecido la instancia real Activity, el sistema recuerda que existía. 
 
 Si el usuario intenta volver a la actividad, el sistema crea una nueva instancia de esa actividad utilizando un conjunto de datos guardados que describen el estado de la actividad cuando finalizó.
@@ -118,7 +118,7 @@ En lugar de restaurar el estado durante onCreate(), puedes optar por implementar
 
 
 
-## ViewModel
+## Estado de la UI usando ViewModel
 
 Los ViewModels contienen datos transitorios utilizados en la interfaz de usuario, pero no conservan los datos. Una vez que se destruye el controlador de IU asociado (fragmento / actividad) o se detiene el proceso, ViewModel y todos los datos contenidos se marcan para la recolección de basura.
 
@@ -136,7 +136,7 @@ A diferencia del estado de instancia guardado, los ViewModels se destruyen duran
 
 En cualquiera de estos casos, debes usar un ViewModel para evitar desperdiciar ciclos recargando datos de la base de datos durante un cambio de configuración.
 
-### ViewModel - SavedState
+### Estado de la UI usando ViewModel & [SavedState](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)
 
 Los objetos **ViewModel** pueden controlar los cambios de configuración para que no tengas que preocuparte por el estado durante las rotaciones y otros casos. Sin embargo, si necesitas administrar el cierre de un proceso iniciado por el sistema, puedes usar onSaveInstanceState() para copias de seguridad.
 
@@ -168,7 +168,7 @@ Con SavedStateHandler puede guardar y restaurar primitivas, Bundles, Parcelables
 
 En realidad, el módulo *lifecycle-viewmodel-savedstate* también usa onSaveInstanceState y onRestoreInstanceState para conservar el estado de ViewModel, pero hace que estas operaciones sean más convenientes.
 
-## Almacenamiento persistente
+## Estado de la UI usando Almacenamiento persistente
 
 Almacena todos los datos que no quieras perder cuando abras y cierres la actividad.
 
