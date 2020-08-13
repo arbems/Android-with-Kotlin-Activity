@@ -1,6 +1,6 @@
 # Android con Kotlin - Fragments - Ciclo de vida de un fragmento
 
-Proyecto con códigos de ejemplo del ciclo de vida de un Fragmento en Android con Kotlin.
+Código de ejemplo del ciclo de vida de un Fragmento en Android con Kotlin.
 
 La clase Fragment tiene un código que se asemeja bastante a una Activity. Contiene métodos de devolución de llamada similares a los de una actividad.
 
@@ -84,11 +84,15 @@ Es cómo cada uno se almacena en su pila de actividades respectiva. Cuando se de
    
 ## Enlaces
 
-![Ciclo de vida de una actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad)
-![Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
-![Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
-![Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
-![Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
+[Ciclo de vida de una actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad)
+
+[Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
+
+[Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
+
+[Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
+
+[Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
 
 ## Attribution
 

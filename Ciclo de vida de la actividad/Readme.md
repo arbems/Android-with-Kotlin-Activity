@@ -100,22 +100,19 @@ STOPPED (Detenida)
 El usuario ya no puede ver la actividad.
 
 DESTROYED (Destruida)
-Se termino de ejecutar la actividad.
-
-
-## Expulsión de memoria
-
-El sistema finaliza los procesos cuando necesita liberar RAM; la probabilidad de que el sistema finalice un proceso determinado dependerá del estado del proceso en ese momento.
-
-<img src="https://raw.githubusercontent.com//arbems/Android-with-Kotlin-Activity/master/Ciclo%20de%20vida%20de%20la%20actividad/0003.png" width="700">
+Se término de ejecutar la actividad.
 
 ## Enlaces
 
-![Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos/Ciclo%20de%20vida%20de%20un%20fragmento)
-![Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
-![Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
-![Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
-![Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
+[Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos/Ciclo%20de%20vida%20de%20un%20fragmento)
+
+[Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
+
+[Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
+
+[Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
+
+[Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
 
 ## Attribution
 

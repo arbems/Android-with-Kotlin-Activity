@@ -16,7 +16,7 @@
 
 #### [Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos)
 
-#### [Guardar y restablecer el estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
+#### [Gestionar estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Gestionar%20estado%20de%20la%20IU)
 
 #### [Interactuando con otras apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Interactuando%20con%20otras%20apps)
 
