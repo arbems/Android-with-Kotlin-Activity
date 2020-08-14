@@ -1,4 +1,4 @@
-# Android con Kotlin - Activity - Gestionar el estado de la IU
+# Android con Kotlin - Activity - Guardar y restablecer el estado de la IU
 
 Código de ejemplo de como guardar y restablecer el estado de la IU usando el método onSaveInstanceState(), ViewModels & SavedState y el almacenamiento persistente en Android con Kotlin.
 
