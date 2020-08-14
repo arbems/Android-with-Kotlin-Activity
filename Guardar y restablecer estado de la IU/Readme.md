@@ -32,7 +32,7 @@ El sistema hace todo lo posible para mantener el proceso de la app en la memoria
 
 Cuando las expectativas del usuario sobre el estado de la IU no coinciden con el comportamiento predeterminado del sistema, debes guardar y restablecer el estado de la IU del usuario para garantizar que la destrucción iniciada por el sistema sea transparente para el usuario.
 
-![Lifecycle Activity](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Gestionar%20estado%20de%20la%20IU/0001.png)
+![Lifecycle Activity](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Guardar%20y%20restablecer%20estado%20de%20la%20IU/0001.png)
 
 
 ## Estado de la UI usando onSaveInstanceState()
