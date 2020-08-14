@@ -4,9 +4,13 @@ Código de ejemplo de como guardar y restablecer el estado de la IU usando el m�
 
 Hay que conservar el estado de la IU de una actividad usando una combinación de **ViewModels**, el método **onSaveInstanceState()** y el **almacenamiento persistente**, cómo combinar estas opciones depende de la complejidad de los datos de la IU, los casos prácticos de tu app y la consideración de la velocidad de recuperación frente al uso de memoria.
        
-En la mayoría de los casos, cada uno de estos mecanismos debe almacenar un tipo diferente de datos utilizados en la actividad, en función de las compensaciones de la complejidad de los datos, la velocidad de acceso y el ciclo de vida:
+En la mayoría de los casos, cada uno de estos mecanismos debe almacenar un tipo diferente de datos utilizados en la actividad, en función de las compensaciones de la complejidad de los datos, la velocidad de acceso y el ciclo de vida.
 
 ## Expectativas del usuario y comportamiento del sistema
+
+Existen algunas situaciones en las que finaliza tu actividad debido al comportamiento normal de la app (botón Atrás o finish()). Cuando finaliza tu actividad porque el usuario presiona Atrás o la actividad se finaliza a sí misma, se pierde para siempre el concepto de esa instancia Activity del sistema y del usuario. En esos casos, las expectativas del usuario coinciden con el comportamiento del sistema y no tienes trabajo adicional que hacer.
+
+Sin embargo, si el sistema finaliza la actividad debido a restricciones (como un cambio de configuración o presión de memoria), entonces, aunque haya desaparecido la instancia real Activity, el sistema recuerda que existía. Si el usuario intenta volver a la actividad, el sistema crea una nueva instancia de esa actividad utilizando un conjunto de datos guardados que describen el estado de la actividad cuando finalizó.
 
 #### Descarte del estado de la IU iniciado por el usuario
 
@@ -18,7 +22,7 @@ El usuario espera que, cuando comience una actividad, el estado transitorio de l
 * eliminar la aplicación de la pantalla Configuración
 * completar algún tipo de actividad de "finalización" (que está respaldada por Activity.finish())
 
-El comportamiento del sistema coincide con la expectativa del usuario: en este caso se destruye la instancia de la actividad y se la quita de la memoria, junto con cualquier estado almacenado en ella y cualquier registro de estado de instancia guardado y asociado con la actividad.
+El comportamiento del sistema coincide con la expectativa del usuario: en este caso se destruye la instancia de la actividad y se quita de la memoria, junto con cualquier estado almacenado en ella y cualquier registro de estado de instancia guardado y asociado con la actividad.
 
 #### Descarte del estado de la IU iniciado por el sistema
 
@@ -35,9 +39,9 @@ Cuando las expectativas del usuario sobre el estado de la IU no coinciden con el
 ![Lifecycle Activity](https://raw.githubusercontent.com/arbems/Android-with-Kotlin-Activity/master/Guardar%20y%20restablecer%20estado%20de%20la%20IU/0001.png)
 
 
-## Estado de la UI usando onSaveInstanceState()
+## Guardar y restablecer el estado usando onSaveInstanceState()
 
-Usa [**onSaveInstanceState()**](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) si los datos de la IU son simples y ligeros, como un tipo de datos primitivos o un objeto simple (como String), puedes utilizar onSaveInstanceState() para mantener el estado de la IU tanto en los cambios de configuración como en la finalización del proceso iniciado por el sistema.
+Se usa [**onSaveInstanceState()**](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) para guardar un estado de IU simple y ligero, como un tipo de datos primitivos o un objeto simple (como String), puedes utilizar onSaveInstanceState() para mantener el estado de la IU tanto en los cambios de configuración como en la finalización del proceso iniciado por el sistema.
 Aunque haya desaparecido la instancia real Activity, el sistema recuerda que existía. 
 
 Si el usuario intenta volver a la actividad, el sistema crea una nueva instancia de esa actividad utilizando un conjunto de datos guardados que describen el estado de la actividad cuando finalizó.
@@ -48,9 +52,15 @@ No uses onSavedInstanceState() para almacenar grandes cantidades de datos, como 
 
 La mayoría de las apps deberían implementar onSaveInstanceState() para manejar el cierre del proceso iniciado por el sistema.
 
-Si los datos de la IU que se preservarán son simples y livianos, recomendamos usar solamente onSaveInstanceState().
+### Estado de la instancia
 
-### Guardar estado de la IU de la actividad usando método onSaveInstanceState()
+Los datos guardados que el sistema utiliza para restaurar el estado previo se denominan estado de instancia y son un conjunto de pares clave-valor almacenados en un objeto Bundle. De forma predeterminada, el sistema utiliza el Bundle de estado de instancia para guardar información de cada objeto View del diseño de tu actividad.
+
+De este modo, si finaliza y se vuelve a crear la instancia de tu actividad, se restablece el estado del diseño a su estado previo sin necesidad de que escribas el código. Sin embargo, es posible que tu actividad tenga más información de estado que desees restablecer, como variables de miembro que siguen el progreso del usuario en la actividad.
+
+`Nota: Para que el sistema Android restablezca el estado de las vistas de tu actividad, cada vista debe tener un ID único provisto por el atributo android:id.`
+
+### Guardar estado con onSaveInstanceState()
 
 De forma predeterminada, el sistema utiliza el [**Bundle**](https://developer.android.com/reference/android/os/Bundle) de estado de instancia para guardar información de cada objeto View del diseño de tu actividad, como el texto de un widget EditText o la posición de desplazamiento de un widget ListView.
 
@@ -74,7 +84,7 @@ A medida que comienza a detenerse tu actividad, el sistema llama al método **on
         super.onSaveInstanceState(outState)
     }
     
-### Restablecer estado de la IU de la actividad usando estado de la instancia guardada
+### Restablecer estado con *estado de la instancia* guardada
     
 Cuando se vuelve a crear tu actividad tras haber finalizado, puedes recuperar la instancia del estado guardado desde el [**Bundle**](https://developer.android.com/reference/android/os/Bundle) que el sistema pasa a tu actividad. Los métodos de devolución de llamada **onCreate**() y **onRestoreInstanceState**() reciben el mismo Bundle que contiene la información del estado de la instancia.
 
@@ -118,7 +128,7 @@ En lugar de restaurar el estado durante onCreate(), puedes optar por implementar
 
 
 
-## Estado de la UI usando ViewModel
+## Guardar y restablecer el estado usando ViewModel
 
 Los ViewModels contienen datos transitorios utilizados en la interfaz de usuario, pero no conservan los datos. Una vez que se destruye el controlador de IU asociado (fragmento / actividad) o se detiene el proceso, ViewModel y todos los datos contenidos se marcan para la recolección de basura.
 
@@ -136,11 +146,11 @@ A diferencia del estado de instancia guardado, los ViewModels se destruyen duran
 
 En cualquiera de estos casos, debes usar un ViewModel para evitar desperdiciar ciclos recargando datos de la base de datos durante un cambio de configuración.
 
-### Estado de la UI usando ViewModel & [SavedState](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)
+### Guardar y restablecer el estado usando ViewModel & SavedState
 
 Los objetos **ViewModel** pueden controlar los cambios de configuración para que no tengas que preocuparte por el estado durante las rotaciones y otros casos. Sin embargo, si necesitas administrar el cierre de un proceso iniciado por el sistema, puedes usar onSaveInstanceState() para copias de seguridad.
 
-Por lo general, se almacena el estado de la IU en objetos ViewModel, no en actividades; por lo tanto, el uso de onSaveInstanceState() requiere algo de código estándar que este módulo (SavedState) puede ayudarte a administrar.
+Por lo general, se almacena el estado de la IU en objetos ViewModel, no en actividades; por lo tanto, el uso de onSaveInstanceState() requiere algo de código estándar que este módulo ([**SavedState**](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)) puede ayudarte a administrar.
 
 Cuando el módulo está configurado, los objetos ViewModel reciben un objeto [**SavedStateHandle**](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) a través de su constructor.
 
@@ -168,7 +178,7 @@ Con SavedStateHandler puede guardar y restaurar primitivas, Bundles, Parcelables
 
 En realidad, el módulo *lifecycle-viewmodel-savedstate* también usa onSaveInstanceState y onRestoreInstanceState para conservar el estado de ViewModel, pero hace que estas operaciones sean más convenientes.
 
-## Estado de la UI usando Almacenamiento persistente
+## Guardar y restablecer el estado usando almacenamiento persistente
 
 Almacena todos los datos que no quieras perder cuando abras y cierres la actividad.
 
@@ -181,7 +191,7 @@ Ni ViewModel ni el estado de instancia guardado son soluciones de almacenamiento
 
 
 
-## Administrar el estado de la IU: divide y vencerás
+## Combinar las diferentes opciones para preservar el estado de la IU
 
 Puedes guardar y restablecer de manera eficaz el estado de la IU dividiendo el trabajo entre los diversos tipos de mecanismos de persistencia.
 
