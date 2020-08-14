@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.*
 
-class SavedStateViewModel(private val mState: SavedStateHandle) : ViewModel() {
+class SavedStateViewModel(private val mState: SavedStateHandle): ViewModel() {
 
     companion object {
         const val SCORE_KEY = "score_key"
@@ -31,9 +31,9 @@ class SavedStateViewModel(private val mState: SavedStateHandle) : ViewModel() {
 
     init {
         _score.value = 0
-        if (mState != null) {
+        if(mState != null) {
             val scoreSaved: LiveData<Int> = mState!!.getLiveData(SCORE_KEY)
-            if (scoreSaved.value?.toInt()!! > 0) _score.value = scoreSaved.value
+            if(scoreSaved.value?.toInt()!! > 0) _score.value = scoreSaved.value
         }
     }
 

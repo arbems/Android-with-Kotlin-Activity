@@ -104,15 +104,11 @@ Se término de ejecutar la actividad.
 
 ## Enlaces
 
-[Ciclo de vida de un fragmento](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos/Ciclo%20de%20vida%20de%20un%20fragmento)
+[Fragmentos](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Fragmentos)
 
-[Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
+[Cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Cambios%20de%20estado%20de%20la%20actividad)
 
-[Gestionar ciclos de vida con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Gestionar%20los%20ciclos%20de%20vida)
-
-[Guardar estados de IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Guardar%20y%20restablecer%20el%20estado%20de%20la%20IU)
-
-[Guardar estados de IU con componentes de la arquitectura](https://github.com/arbems/Android-with-Kotlin-Architecture-Components/tree/master/Guardar%20estados%20de%20IU)
+[Gestionar estado de la IU](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Gestionar%20estado%20de%20la%20IU)
 
 ## Attribution
 

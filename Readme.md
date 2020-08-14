@@ -2,11 +2,11 @@
 
 #### [Accesos directos apps](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Accesos%20directos%20apps)
 
-#### [Administrar los cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Administrar%20los%20cambios%20de%20estado%20de%20la%20actividad)
-
 #### [Android App Links](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Android%20App%20Links)
 
 #### [App Widgets](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/App%20Widgets)
+
+#### [Cambios de estado de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Cambios%20de%20estado%20de%20la%20actividad)
 
 #### [Ciclo de vida de la actividad](https://github.com/arbems/Android-with-Kotlin-Activity/tree/master/Ciclo%20de%20vida%20de%20la%20actividad) 
 

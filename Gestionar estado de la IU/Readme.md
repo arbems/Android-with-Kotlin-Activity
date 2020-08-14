@@ -1,6 +1,6 @@
-# Android con Kotlin - Activity - Guardar y restablecer el estado de la IU
+# Android con Kotlin - Activity - Gestionar el estado de la IU
 
-Código de ejemplo de como guardar y restablecer el estado de la IU usando ViewModels, SavedState, el método onSaveInstanceState() y el almacenamiento persistente en Android con Kotlin.
+Código de ejemplo de como guardar y restablecer el estado de la IU usando el método onSaveInstanceState(), ViewModels & SavedState y el almacenamiento persistente en Android con Kotlin.
 
 Hay que conservar el estado de la IU de una actividad usando una combinación de **ViewModels**, el método **onSaveInstanceState()** y el **almacenamiento persistente**, cómo combinar estas opciones depende de la complejidad de los datos de la IU, los casos prácticos de tu app y la consideración de la velocidad de recuperación frente al uso de memoria.
        
@@ -144,9 +144,9 @@ Por lo general, se almacena el estado de la IU en objetos ViewModel, no en activ
 
 Cuando el módulo está configurado, los objetos ViewModel reciben un objeto [**SavedStateHandle**](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) a través de su constructor.
 
-    class SavedStateViewModel(private val mState: SavedStateHandle) : ViewModel() { /* ... */ }
-
     androidx.lifecycle:lifecycle-viewmodel-savedstate:$savedStateVersion
+####
+    class SavedStateViewModel(private val mState: SavedStateHandle) : ViewModel() { /* ... */ }
 
 Una vez que tenga la dependencia, siempre que esté usando un Fragmento o Actividad predeterminados, tendrá acceso a [**SavedStateHandle**](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) en su ViewModel. <br/>
 
