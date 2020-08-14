@@ -195,10 +195,6 @@ Cada uno de estos mecanismos debe almacenar un tipo diferente de datos utilizado
     * Ejemplo: almacenar la consulta de búsqueda más reciente
 
 
-## Enlaces
-
-
-
 ## Attribution
 
 This code was created by [arbems](https://github.com/arbems) in 2020.
